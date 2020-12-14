@@ -1,4 +1,3 @@
-import pdb
 import pickle
 import rdkit
 from mol_tree import PathNode, MolTreeNode
@@ -237,8 +236,7 @@ def get_subtree(tree, edge, x_node_vecs, x_mess_dict):
     node_tree_idx = {}
     node_list = {}
     # ========================= Get Subtree List ===============================
-
-#    try:
+    
     tree.nodes[0].keep_neighbors = []
     for i, node in enumerate(tree.nodes[1:]):
         fa_node = node.fa_node
@@ -302,9 +300,6 @@ def get_subtree(tree, edge, x_node_vecs, x_mess_dict):
     for i, node in enumerate(max_subtree.nodes):
         node.idx = i
         node.nid = i
-#    except Exception as e:
-#        print(e)
-#        pdb.set_trace()
 
     return subtree_list, max_subtree, node_tree_idx, node_list
       

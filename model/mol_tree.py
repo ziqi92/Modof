@@ -9,7 +9,6 @@ from nnutils import create_pad_tensor
 from vocab import *
 from properties import penalized_logp
 import torch
-import pdb
 
 class MolTree(object):
     
