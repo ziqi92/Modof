@@ -1,3 +1,4 @@
+# Modified from https://github.com/wengong-jin/iclr19-graph2graph
 import rdkit
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem

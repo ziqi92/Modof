@@ -1,4 +1,3 @@
-import pdb
 import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -25,7 +24,7 @@ class PairTreeFolder(object):
 
     def __iter__(self):
         for fn in os.listdir(self.path):
-            if not fn.startswith("new_tensors"): continue
+            if not fn.startswith("tensors"): continue
             fn = os.path.join(self.path, fn)
             with open(fn, 'rb') as f:
                 data = pickle.load(f)
@@ -39,8 +38,7 @@ class PairTreeFolder(object):
             
             dataset = PairTreeDataset(batches, self.vocab, self.avocab, self.y_assm, add_target=self.add_target)
             dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=self.num_workers, collate_fn=lambda x:x[0])
-            #for i in range(30):
-            #    b = dataset.getitem(i)
+            
             for b in dataloader:
                 yield b
             del data, batches, dataset, dataloader

@@ -353,7 +353,7 @@ if __name__ == "__main__":
     #lg.setLevel(rdkit.RDLogger.CRITICAL)
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--data", type=str, default="../Molecule/Data/zinc/test.txt", help="data path")
+    parser.add_argument("-d", "--data", type=str, default="../data/test.txt", help="data path")
     parser.add_argument("-o", "--out", type=str, default="../data/vocab.txt", help="vocabulary path")
     args = parser.parse_args()
     
