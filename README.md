@@ -1,4 +1,4 @@
-### Molecule Optimization via Fragment-based Generative Models
+# Molecule Optimization via Fragment-based Generative Models
 
 ---
 
@@ -6,7 +6,7 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 
 
 
-### Requirements
+# Requirements
 
 ---
 
@@ -21,9 +21,8 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 
 * scipy==1.4.1
 
-### 
 
-### Training
+# Training
 
 ---
 
