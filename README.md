@@ -1,6 +1,5 @@
 # Molecule Optimization via Fragment-based Generative Models
 
----
 
 This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.pdf
 
@@ -8,7 +7,6 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 
 # Requirements
 
----
 
 * python==3.x
 * scikit-learn==0.22.1
@@ -24,7 +22,6 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 
 # Training
 
----
 
 Train *Modof* model with command below:
 
