@@ -5,6 +5,7 @@ Created on Tue Oct 15 15:28:46 2019
 
 @author: ziqi
 """
+import pdb
 import time
 import torch
 import torch.nn as nn
@@ -24,22 +25,24 @@ class MolEncoder(nn.Module):
         self.depthT = depthT
         self.depthG = depthG
         self.embedding = embedding  # Embedding for substructures
+        self.embedding_size = embedding.weight.shape[1]
         self.E_a = torch.eye(atom_size).to(device)
         self.E_b = torch.eye(self.bond_size).to(device)
         
         #Atom-level Message Passing
         self.W_a = nn.Linear(atom_size + self.bond_size + hidden_size, hidden_size).to(device)
         self.outputAtom = nn.Sequential(
-            nn.Linear(atom_size + depthG * hidden_size, latent_size).to(device),
+            nn.Linear(atom_size + depthG * hidden_size, hidden_size).to(device),
             nn.ReLU()
         )
         
         #Tree-level Message Passing
-        self.W_i = nn.Linear(2 * hidden_size, hidden_size).to(device)
+        
+        self.W_i = nn.Linear(self.embedding_size + hidden_size, hidden_size, hidden_size).to(device)
         self.W_g = nn.Linear(2 * hidden_size, hidden_size).to(device)
         self.W_t = nn.Linear(2 * hidden_size, hidden_size).to(device)
         self.outputNode = nn.Sequential(
-            nn.Linear((depthT+1) * hidden_size, latent_size).to(device),
+            nn.Linear((depthT+1) * hidden_size, hidden_size).to(device),
             nn.ReLU()
         )
     
@@ -48,8 +51,9 @@ class MolEncoder(nn.Module):
         finput = self.embedding(fnode)
             
         hnode = index_select_ND(hatom, 0, dgraph).sum(dim=1)
-        hnode = self.W_i( torch.cat([finput, hnode], dim=-1) )
         
+        hnode = self.W_i( torch.cat([finput, hnode], dim=-1) )
+        #pdb.set_trace()   
         hmess1 = hnode.index_select(index=fmess[:,0], dim=0)
         hmess2 = index_select_ND(hatom, 0, cgraph).sum(dim=1)
         hmess = self.W_g( torch.cat([hmess1, hmess2], dim=-1) )

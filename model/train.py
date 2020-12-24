@@ -22,7 +22,7 @@ from datautils import PairTreeFolder
 from torch.nn import DataParallel
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-path = os.path.dirname(os.getcwd())
+path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

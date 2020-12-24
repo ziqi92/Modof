@@ -1,3 +1,4 @@
+import time
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -112,7 +113,7 @@ best_res = []
 outfiles = [open("%s_iter%d.txt" % (output_path, i), 'w') for i in range(opts.iternum)]
 output = []
 best_smiles = []
-
+time1 = time.time()
 # for each input molecule in data
 for smiles in data[start:end]:
     best_score1, best_score2, best_imp, best_ori_imp, best_atom_num, best_sim, best_orisim = 0,0,None,0,0,0,0
@@ -173,6 +174,9 @@ for smiles in data[start:end]:
         res_file.write(s)
         res_file.flush()
     
+    time2 = time.time()
+    print("time: %s" % str(time2-time1))
+    time1 = time2
     best_res.append( (best_ori_imp/score1, best_ori_imp, best_orisim, ori_smiles, ori_score, atom_num, best_smiles, best_atom_num, best_score2) )
 
 

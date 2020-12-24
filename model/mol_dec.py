@@ -5,6 +5,7 @@ Created on Tue Oct 15 15:28:46 2019
 
 @author: ziqi
 """
+import pdb
 import time
 import torch
 import copy
@@ -28,7 +29,10 @@ class MolDecoder(nn.Module):
         self.vocab_size = vocab.size()+1
         self.vocab = vocab
         self.avocab = avocab
+        
+        self.atom_size = avocab.size()
         self.embedding = embedding
+        self.embedding_size = embedding.weight.shape[1]
         self.score_func = score_func
         self.encoder = encoder
         
@@ -36,15 +40,16 @@ class MolDecoder(nn.Module):
         
         if score_func == 1:
             #Atom 1 Prediction
-            self.W_a1 = nn.Linear(5 * hidden_size, hidden_size).to(device)
+            self.W_a1 = nn.Linear(latent_size + self.embedding_size + 3 * hidden_size, hidden_size).to(device)
             self.U_a1 = nn.Linear(hidden_size, 1).to(device)
         
             #Atom 2 Prediction
-            self.W_a2 = nn.Linear(4 * hidden_size, hidden_size).to(device)
+            self.W_a2 = nn.Linear(latent_size + self.embedding_size + 2 * hidden_size, hidden_size).to(device)
             self.U_a2 = nn.Linear(hidden_size, 1).to(device)
         
             #Disconnection site
-            self.W_a = nn.Linear(3 * hidden_size, hidden_size).to(device)
+            self.W_a = nn.Linear(2 * latent_size + hidden_size, hidden_size).to(device)
+
             self.U_a = nn.Linear(hidden_size, 1).to(device)
         elif score_func == 2:
             #Atom 1 Prediction
@@ -66,11 +71,11 @@ class MolDecoder(nn.Module):
             self.lstm = TreeLSTM(embed_size, hidden_size, depthT)
 
         #Deletion node
-        self.W_d = nn.Linear(2 * latent_size, hidden_size).to(device)
+        self.W_d = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_d = nn.Linear(hidden_size, 1).to(device)
 
         #Topo Prediction
-        self.W_t = nn.Linear(2 * hidden_size, hidden_size).to(device)
+        self.W_t = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_t = nn.Linear(hidden_size, 1).to(device)
         
         #Node Prediction
@@ -617,8 +622,8 @@ class MolDecoder(nn.Module):
         x_tree, x_graph = x_graphs
         tree_tensors, graph_tensors = x_tensors
         
-        diff_del_vecs = latent_vecs[:self.hidden_size]
-        diff_add_vecs = latent_vecs[self.hidden_size:]
+        diff_del_vecs = latent_vecs[:self.latent_size]
+        diff_add_vecs = latent_vecs[self.latent_size:]
         
         # =================================================================
         # disconnection site and delete fragments prediction
@@ -653,6 +658,7 @@ class MolDecoder(nn.Module):
                 # delete fragments prediction
                 neighbors = torch.LongTensor([edge[1] for edge in x_tree.edges(target_idx)]).to(device)
                 neighbors_vecs = index_select_ND(x_node_vecs, 0, neighbors)
+                
                 del_del_vecs = diff_del_vecs.repeat((neighbors.size(0), 1))
                 del_scores = self.predict(torch.cat((neighbors_vecs, del_del_vecs), dim=1), "delete").squeeze()
                 dele = torch.ge(del_scores, 0) * neighbors
@@ -768,8 +774,10 @@ class MolDecoder(nn.Module):
         
         while len(nodes) > 0:
             parent_node = torch.LongTensor([nodes[0]]).to(device)
-            masks = (torch.ones((tree_tensors[0].size(0), 1)).to(device), torch.ones((tree_tensors[1].size(0), 1)).to(device))
-            
+            try:
+                masks = (torch.ones((tree_tensors[0].size(0), 1)).to(device), torch.ones((tree_tensors[1].size(0), 1)).to(device))
+            except:
+                pdb.set_trace()
             mol = graph_to_mol(new_graph)
             hatom1 = self.encoder.encode_atom(graph_tensors) 
             node_embedding = self.get_node_embedding(tree_tensors, parent_node, masks , hatom1)[0,:]
@@ -817,7 +825,7 @@ class MolDecoder(nn.Module):
         if tree:
             fnode, fmess, agraph, bgraph, cgraph, dgraph, _ = tensors
         else:
-            fnode, fmess, agraph, bgraph, _, _ = tensors
+            fnode, fmess, agraph, bgraph, cgraph, dgraph = tensors
 
         for node_idx in node_idxs:
             if tree:
@@ -850,7 +858,14 @@ class MolDecoder(nn.Module):
                     if w == edge[1]: continue
                     tmp.append( graph[w][edge[0]]['mess_idx'] )
                 bgraph = torch.cat((bgraph, torch.tensor([tmp+[0] * (bgraph.size(1) - len(tmp))]).to(device).long()), dim=0)
-
+       
+                if tree:
+                    anchor = graph[edge[0]][edge[1]]['anchor']
+                    cgraph = torch.cat((cgraph, torch.tensor([anchor + [0] * (cgraph.size(1) - len(anchor))]).to(device).long()), dim=0) 
+        if tree:
+            return [fnode, fmess, agraph, bgraph, cgraph, dgraph] + tensors[6:]
+        else:
+            return [fnode, fmess, agraph, bgraph] + tensors[4:]
 
     def try_add_mol(self, tree, graph, node_idx, smiles, hnode, hatoms, diff_add_vec, amap, old_mol):
         """ determine whether the predicted new node can be attached to the parent node or not.
@@ -1106,6 +1121,7 @@ def update_tree(tree, smiles, parent_idx, anchor, clq, amap):
     tree.add_edge(child_idx, parent_idx)
     tree[child_idx][parent_idx]['mess_idx'] = len(tree.edges)
     
+    tree[parent_idx][child_idx]['anchor'] = anchor
     tree[child_idx][parent_idx]['anchor'] = anchor
     tree.nodes[child_idx]['clq'] = clq
     
@@ -1140,7 +1156,12 @@ def bond_cand(begin_atom, end_atom, bond_val1, mol):
                 if atom1.GetTotalNumHs() + end_atom.GetTotalNumHs() + bond_val1 >= atom1.GetTotalValence():
                     cands.append((atom2, atom1))
                     continue
-    
+   
+    if len(cands) > 0:
+        return True, cands
+    else:
+        return False, cands
+ 
 def atom_cand(atom1, mol, amap):
     """ Find the atom candidate from molecule mol
     """
