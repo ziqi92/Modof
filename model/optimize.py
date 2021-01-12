@@ -5,7 +5,7 @@ from torch.autograd import Variable
 import math, random, sys
 from argparse import ArgumentParser
 from collections import deque
-
+import pdb
 import rdkit
 import rdkit.Chem as Chem
 from rdkit.Chem import Descriptors
@@ -55,34 +55,35 @@ def predict(smiles, lr, vocab, avocab, reselect, ori_smiles, iternum, output):
 
 def output_iter(res, res_file):
     if len(res) == 0:
-        s = "num: 0 avg(per): 0.00 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
+        s = "num: 0 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
 
     else:
-        avg_imp = sum([x[1] for x in res])/len(res)
-        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in res])/len(res))
-        avg_sim = sum([x[2] for x in res])/len(res)
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res])/len(res))
+        avg_imp = sum([x[0] for x in res])/len(res)
+        std_imp = math.sqrt(sum([(x[0] - avg_imp)**2 for x in res])/len(res))
+        avg_sim = sum([x[1] for x in res])/len(res)
+        std_sim = math.sqrt(sum([(x[1] - avg_sim)**2 for x in res])/len(res))
 
-        avg_ori_imp = sum([x[10] for x in res])/len(res)
-        std_ori_imp = math.sqrt(sum([(x[10] - avg_ori_imp)**2 for x in res])/len(res))
-        avg_ori_sim = sum([x[11] for x in res])/len(res)
-        std_ori_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res])/len(res))
+        avg_ori_imp = sum([x[9] for x in res])/len(res)
+        std_ori_imp = math.sqrt(sum([(x[9] - avg_ori_imp)**2 for x in res])/len(res))
+        avg_ori_sim = sum([x[10] for x in res])/len(res)
+        std_ori_sim = math.sqrt(sum([(x[10] - avg_ori_sim)**2 for x in res])/len(res))
 
-        s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(res), sum([x[0] for x in res])/len(res), avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[5] for x in res])/len(res[i]),sum([x[7] for x in res])/len(res))
+        s = "num: %d avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(res), avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[4] for x in res])/len(res),sum([x[6] for x in res])/len(res))
 
     res_file.write(s)
     res_file.flush()
 
 def output_best(best_res, res_file):
     if len(best_res) == 0:
-        s = "num: 0 avg(per): 0.00 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n" 
+        s = "num: 0 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n" 
     else:
-        avg_imp = sum([x[1] for x in best_res])/len(best_res)
-        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in best_res])/len(best_res))
-        avg_sim = sum([x[2] for x in best_res])/len(best_res)
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res])/len(best_res))
-        
-        s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(best_res), sum([x[0] for x in best_res])/len(best_res), avg_imp, std_imp, avg_sim, std_sim, sum([x[5] for x in best_res])/len(best_res), sum([x[7] for x in best_res])/len(best_res))
+        avg_imp = sum([x[0] for x in best_res])/len(best_res)
+        std_imp = math.sqrt(sum([(x[0] - avg_imp)**2 for x in best_res])/len(best_res))
+        avg_sim = sum([x[1] for x in best_res])/len(best_res)
+        std_sim = math.sqrt(sum([(x[1] - avg_sim)**2 for x in best_res])/len(best_res))
+       
+        pdb.set_trace() 
+        s = "num: %d avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(best_res), avg_imp, std_imp, avg_sim, std_sim, sum([x[4] for x in best_res])/len(best_res), sum([x[6] for x in best_res])/len(best_res))
     res_file.write(s)
     res_file.flush()
     
@@ -160,7 +161,7 @@ for smiles in data[start:end]:
     reselect_num = 0
     ori_smiles = smiles
     ori_score = None
-
+    ori_atom = 0
     # optimize the input molecule for no more than "iternum" times
     for i in range(opts.iternum):
         if best_imp is not None:
@@ -189,7 +190,9 @@ for smiles in data[start:end]:
             reselect_num += reselect
             if smiles == new_smiles:
                 fail_num += 1
-            if ori_score is None: ori_score = score1
+            if ori_score is None:
+                ori_atom = atom_num
+                ori_score = score1
 
             # save the best optimized molecule
             if (best_imp is None or score2-score1 > best_imp) and ori_sim > opts.cutoff:
@@ -205,8 +208,8 @@ for smiles in data[start:end]:
         if best_imp is None: best_imp = 0
         if best_ori_imp is None: best_ori_imp = 0
         
-        res[i].append( (best_imp/score1, best_imp, best_sim, smiles, score1, atom_num, best_smiles, best_atom_num, best_score2, ori_smiles, best_ori_imp, best_orisim) )
-        s = "iter:%d num: %d sel: %d per: %.4f imp: %.4f ori_imp: %.4f sim: %.4f ori_sim: %.4f smile: %s score: %.4f atomnum: %d new_smile: %s new_atomnum: %d new_score: %.4f ori_smile: %s\n" % (i, fail_num, reselect_num, best_imp/score1, best_imp, best_ori_imp, best_sim, best_orisim, smiles, score1, atom_num, best_smiles, best_atom_num, best_score2, ori_smiles)
+        res[i].append( (best_imp, best_sim, smiles, score1, atom_num, best_smiles, best_atom_num, best_score2, ori_smiles, best_ori_imp, best_orisim) )
+        s = "iter:%d num: %d sel: %d imp: %.4f ori_imp: %.4f sim: %.4f ori_sim: %.4f smile: %s score: %.4f atomnum: %d new_smile: %s new_atomnum: %d new_score: %.4f ori_smile: %s\n" % (i, fail_num, reselect_num, best_imp, best_ori_imp, best_sim, best_orisim, smiles, score1, atom_num, best_smiles, best_atom_num, best_score2, ori_smiles)
         print(s)
         res_file.write(s)
         res_file.flush()
@@ -214,7 +217,7 @@ for smiles in data[start:end]:
     time2 = time.time()
     print("time: %s" % str(time2-time1))
     time1 = time2
-    best_res.append( (best_ori_imp/score1, best_ori_imp, best_orisim, ori_smiles, ori_score, atom_num, best_smiles, best_atom_num, best_score2) )
+    best_res.append( (best_ori_imp, best_orisim, ori_smiles, ori_score, ori_atom, best_smiles, best_atom_num, best_score2) )
 
 
 
@@ -226,48 +229,48 @@ for i in range(opts.iternum):
 
     # Total number
     res_file.write("[total]\n")
-    output(res[i], res_file) 
+    output_iter(res[i], res_file) 
     
     # Positive
     res_file.write("[positive]\n")
-    tmp_res = [x for x in res[i] if x[1] > 0]
-    output(tmp_res, res_file)
+    tmp_res = [x for x in res[i] if x[0] > 0]
+    output_iter(tmp_res, res_file)
 
     # Negative
     res_file.write("[negative]\n")
-    tmp_res = [x for x in res[i] if x[1] < 0]
-    output(tmp_res, res_file)
+    tmp_res = [x for x in res[i] if x[0] < 0]
+    output_iter(tmp_res, res_file)
     
     # Zero
     res_file.write("[zero]\n")
-    tmp_res = [x for x in res[i] if x[1] == 0]
-    output(tmp_res, res_file)
+    tmp_res = [x for x in res[i] if x[0] == 0]
+    output_iter(tmp_res, res_file)
      
 # =========================================== Output the best results ============================================
 
 # Total
 res_file.write("[best total]\n")
-output(best_res, res_file)
+output_best(best_res, res_file)
 
 # Positive
 res_file.write("[best positive]\n")
-tmp_res = [x for x in best_res if x[1] > 0]
-output(tmp_res, res_file)
+tmp_res = [x for x in best_res if x[0] > 0]
+output_best(tmp_res, res_file)
 
 # Negative
 res_file.write("[best negative]\n")
-tmp_res = [x for x in best_res if x[1] < 0]
-output(tmp_res, res_file)
+tmp_res = [x for x in best_res if x[0] < 0]
+output_best(tmp_res, res_file)
 
 # Zero
 res_file.write("[best zero]\n")
-tmp_res = [x for x in best_res if x[1] == 0]
-output(tmp_res, res_file)
+tmp_res = [x for x in best_res if x[0] == 0]
+output_best(tmp_res, res_file)
 res_file.close()
 
 # Save the optimized molecule into output file
 smiles_file = open("%s_iter%d_smiles.txt" % (output_path, opts.iternum), 'w')
 for x in best_res:
-    string = "%s %s %.2f %.4f %.4f %.4f\n" % (x[3], x[6], x[2], x[4], x[8], x[1])
+    string = "%s %s %.2f %.4f %.4f %.4f\n" % (x[2], x[5], x[1], x[3], x[7], x[0])
     smiles_file.write(string)
 smiles_file.close()

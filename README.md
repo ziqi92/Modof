@@ -89,6 +89,16 @@ It can take no more than **4 hours** to train a *modof* model for 6,000 steps.
 To test a trained model, you can run the file <code>./model/optimize.py</code> with following command:
 
 ```
-python ./model/optimize.py --test ./data/logp06/test.txt --vocab ./data/logp06/vocab.txt --model <model data path> -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800
+python ./model/optimize.py --test ./data/logp06/test.txt --vocab ./data/logp06/vocab.txt --model <model data path> -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800 --num 20 -s 0.6
 ```
+
+<code>-s similarity_threshold</code> controls the similarity threshold of generated molecules.
+<code>-num value</code> controls the number of latent embedding samples for each molecule at each iteration
+<code>-iternum value</code> controls the number of iterations.
+
+The outputs include:
+* <code>*-iter[0-num].txt</code> include the optimization results of each input molecule with all the latent embedding samples.
+* <code>*-iter[num]_results.txt</code> include the optimization results of each input molecule at all [num] iterations.
+* <code>*-smiles.txt</code> include the best optimized molecules among all iterations, the property scores of these optimized molecules and the similarities of these optimized molecules with input molecules.
+
 
