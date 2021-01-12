@@ -20,6 +20,28 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 * scipy==1.4.1
 
 
+# Data preprocessing
+## Provided Processed Dataset
+data/logp06/tensors-\*.pkl contains the processed data used in our paper. The raw dataset of this processed dataset is from https://github.com/wengong-jin/iclr19-graph2graph.
+Each data point in these file has three elements:
+```
+(<MolTree object for molecule x>, <MolTree object for molecule y>, <edit path between molecule x and y>)
+```
+
+preprocess/ contains the code we used to get this processed dataset.
+To get this processed dataset, you can run
+```
+python ./preprocess/preprocess.py
+```
+The processed dataset will be saved in directory "data/logp06".
+
+You can also use this code to process a new dataset with molecule pairs by running
+```
+python ./preprocess/preprocess.py --train <train_path> --vocab <vocab_path>
+```
+The processed dataset will be saved in the same directory with <train_path>
+
+
 # Training
 
 

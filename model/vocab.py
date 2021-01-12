@@ -1,3 +1,4 @@
+# Code from https://github.com/wengong-jin/iclr19-graph2graph
 import rdkit.Chem as Chem
 import copy
 

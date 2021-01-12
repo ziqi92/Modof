@@ -5,7 +5,6 @@ Created on Tue Oct 15 15:28:46 2019
 
 @author: ziqi
 """
-import pdb
 import time
 import torch
 import copy
@@ -39,28 +38,28 @@ class MolDecoder(nn.Module):
         self.uniq_atom_dict = {}
         
         if score_func == 1:
-            #Atom 1 Prediction
+            # Parameters for function used to predict parent attachments.
             self.W_a1 = nn.Linear(latent_size + self.embedding_size + 3 * hidden_size, hidden_size).to(device)
             self.U_a1 = nn.Linear(hidden_size, 1).to(device)
         
-            #Atom 2 Prediction
+            # Parameters for function used to predict child attachments
             self.W_a2 = nn.Linear(latent_size + self.embedding_size + 2 * hidden_size, hidden_size).to(device)
             self.U_a2 = nn.Linear(hidden_size, 1).to(device)
         
-            #Disconnection site
+            # Parameters for function used to predict disconnection site
             self.W_a = nn.Linear(2 * latent_size + hidden_size, hidden_size).to(device)
 
             self.U_a = nn.Linear(hidden_size, 1).to(device)
         elif score_func == 2:
-            #Atom 1 Prediction
+            # Parameters for function used to predict parent attachments.
             self.W_a1 = nn.Linear(4 * hidden_size, hidden_size).to(device)
             self.U_a1 = nn.Linear(hidden_size, hidden_size).to(device)
-        
-            #Atom 2 Prediction
+            
+            # Parameters for function used to predict child attachments.
             self.W_a2 = nn.Linear(3 * hidden_size, hidden_size).to(device)
             self.U_a2 = nn.Linear(hidden_size, hidden_size).to(device)
 
-            #Disconnection site
+            # Parameters for function used to predict disconnection site
             self.W_a = nn.Linear(2 * hidden_size, hidden_size).to(device)
             self.U_a = nn.Linear(hidden_size, hidden_size).to(device)
 
@@ -70,15 +69,15 @@ class MolDecoder(nn.Module):
         if tree_lstm:
             self.lstm = TreeLSTM(embed_size, hidden_size, depthT)
 
-        #Deletion node
+        # Parameters for function used to predict removal fragments
         self.W_d = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_d = nn.Linear(hidden_size, 1).to(device)
 
-        #Topo Prediction
+        # Parameters for function used to predict child node connections
         self.W_t = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_t = nn.Linear(hidden_size, 1).to(device)
         
-        #Node Prediction
+        # Parameters for function used to predict child node types
         self.W_n = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_n = nn.Linear(hidden_size, self.vocab_size).to(device)
         
@@ -89,7 +88,7 @@ class MolDecoder(nn.Module):
         self.topo_loss = nn.BCEWithLogitsLoss(size_average=False)
         
     def get_target_predictions(self, graphs):
-        """ Get the ground truth disconnection site
+        """ Get the ground truth disconnection site labels for prediction
         """
         labels = []
         for graph in graphs:
@@ -99,7 +98,12 @@ class MolDecoder(nn.Module):
         return labels
     
     def apply_tree_mask(self, tensors, masks):
-        """ Mask the added fragments in the tree of molecules y
+        """ Mask the fragments to be added in the tree of molecule y
+        so that the model can learn the fragments to be added with teacher forcing.
+
+        Args:
+            tensors: embeddings to be masked
+            masks: node masks and edge masks
         """
         nmask, emask = masks
         fnode, fmess, agraph, bgraph, cgraph, dgraph, scope = tensors
@@ -113,7 +117,8 @@ class MolDecoder(nn.Module):
         return tensors
 
     def apply_graph_mask(self, tensors, masks):
-        """ Mask the added fragments in the graph of molecules y
+        """ Mask the fragments to be added in the graph of molecules y
+        ...
         """
         amask, bmask = masks
         fnode, fmess, agraph, bgraph, cgraph, scope = tensors
@@ -127,20 +132,24 @@ class MolDecoder(nn.Module):
         return tensors
     
     def update_graph_mask(self, graph_batch, tree_tensors, graph_tensors, masks, node_idx):
-        """ Update the graph mask
+        """ Update the graph mask after the prediction of node with idx `node_idx`,
+        so that messages can be passed through the added new atoms in the new node.
         """
         amask, bmask = masks
         dgraph = tree_tensors[5]
         _, _, agraph, bgraph, egraph, _ = graph_tensors
         cls = index_select_ND(dgraph, 0, node_idx)
+        # Get all the atoms within the node `node_idx`
         amask.scatter_(0, cls[cls>0].unsqueeze(1), 1)
         
+        # get the new edge mask from the atom mask 
         emask = amask * amask.transpose(0, 1)
         emask_idx = (emask * egraph).nonzero()
         emask_idx = egraph[emask_idx[:,0], emask_idx[:,1]].unsqueeze(1)
-        
         emask = torch.zeros(bgraph.size(0), 1).to(device)
         emask.scatter_(0, emask_idx, 1)
+
+        
         agraph = (agraph * index_select_ND(emask, 0, agraph).squeeze(-1)).long()
         bgraph = (bgraph * index_select_ND(emask, 0, bgraph).squeeze(-1)).long()
         
@@ -150,12 +159,14 @@ class MolDecoder(nn.Module):
         return graph_tensors, masks
             
     def update_tree_mask(self, tree_batchG, tree_tensors, masks, node_idx):
-        """ Update the tree mask
+        """ Update the tree mask after the prediction of node with idx `node_idx`,
+        so that messages can be passed through the added new node.
         """
         nmask, emask = masks
         _, _, agraph, bgraph, cgraph, dgraph, _ = tree_tensors
         nmask.scatter_(0, node_idx.unsqueeze(1), 1)
         
+        # Get the indices of messages/edges connected with node
         mess_idxs = []
         pairs = []
         for i in range(node_idx.size(0)):
@@ -178,7 +189,11 @@ class MolDecoder(nn.Module):
         return tree_tensors, masks
     
     def get_node_embedding(self, tree_tensors, node_idx, masks, hatom):
-        """ Get the embeddings of nodes using encoder
+        """ Get the embeddings of nodes using the message passing networks in encoder
+        Args:
+            tree_tensors: the tree embebdings used for TMPN
+            node_idx: the index of nodes with embeddings to be learned 
+        
         """
         nmask, emask = masks
         
@@ -200,12 +215,13 @@ class MolDecoder(nn.Module):
         fmess = (fmess * index_select_ND(new_emask, 0, fmess).squeeze(-1)).long()
         tensors = (fnode, fmess, agraph, bgraph, cgraph, dgraph, None)
         
+        # tree message passing
         hnode = self.encoder.encode_node(tensors, hatom, node_idx)
         
         return hnode
     
     def get_atom_embedding(self, tree_batch, graph_tensors, node_idx):
-        """ Get the embeddings of atoms using encoder
+        """ Get the embeddings of atoms using the MPN in encoder
         """
         fatom, fbond, agraph, bgraph, egraph, scope = graph_tensors
         amask = torch.zeros(fatom.size(0), 1).to(device)
@@ -232,7 +248,6 @@ class MolDecoder(nn.Module):
         tensors = (fatom, fbond, agraph, bgraph, None, None)
         hatom = self.encoder.encode_atom(tensors)
         
-        #hatom_strut = self.encoder.encode_atom_without_para(tensors, clusters.squeeze())
         return hatom
     
             
@@ -250,8 +265,6 @@ class MolDecoder(nn.Module):
             for idx in range(x_scope[i][0], x_scope[i][0] + x_scope[i][1]):
                 if x_tree_batch.nodes[idx]['target']:
                     label = torch.LongTensor([idx-x_scope[i][0]]).to(device)
-                    #if label.item() >= x_scope[i]
-                    #    pdb.set_trace() 
                     break
             
             #Disconnection site prediction
@@ -263,11 +276,10 @@ class MolDecoder(nn.Module):
             if torch.argmax(scores) == label[0]:
                 tart_acc += 1
                 
-            #if label.item() >= x_scope[i][1]:
-            #    pdb.set_trace()
+            #
             target_loss.append( self.tart_loss(scores.reshape(1, -1), label) )
                 
-            #Deletion nodes embedding and targets preparation
+            # Deletion nodes embedding and targets preparation
             del_cands = [edge[1] for edge in x_tree_batch.edges(x_scope[i][0]+label.item())]
             if len(del_cands) == 1:
                 continue
@@ -281,7 +293,7 @@ class MolDecoder(nn.Module):
             del_hidden = torch.cat((del_node_vecs, del_diff_vecs), dim=1)
             del_hiddens.append(del_hidden)
         
-        #Deletion node prediction
+        # predictions of removal fragments
         del_targets = torch.FloatTensor(del_targets).to(device)
         del_one = del_targets.nonzero().size(0)
         del_zero = del_targets.size(0) - del_one
@@ -289,7 +301,7 @@ class MolDecoder(nn.Module):
         del_scores = self.predict(del_hiddens, "delete").squeeze(1)
         del_loss = self.del_loss(del_scores, del_targets) / len(orders)
         
-        #Accuracy and recall of deletion nodes prediction
+        # Accuracy of removal fragments predictions
         dele = torch.ge(del_scores, 0).float()
         del_acc = torch.eq(dele, del_targets).float()
         del_acc = torch.sum(del_acc) / del_targets.nelement()
@@ -298,10 +310,8 @@ class MolDecoder(nn.Module):
         target_loss = sum(target_loss) / len(orders)
         tart_acc = tart_acc / len(orders)
         
-
-
-
-        # ======================================================================
+        # Prediction of New Fragment attachment
+        # =====================================================================
 
         # Get the masked tree tensors and graph tensors
         cur_tree_tensors = self.apply_tree_mask(tree_tensors, tree_mask)
@@ -317,7 +327,8 @@ class MolDecoder(nn.Module):
         node_hiddens, node_targets = [],[]
         atom2_hiddens1, atom2_hiddens2, atom2_targets1, atom2_targets2, atom2_labels = [],[],[],[],[]
 
-        
+        # index used to represent whether the embedding of disconnection site are considered when calculating 
+        # the latent training data; `begin=1` represents that h = nd + sum(nx).
         if add_target:
             begin = 1
         else:
@@ -327,6 +338,8 @@ class MolDecoder(nn.Module):
             batch_list = [i for i in range(batch_size) if t < len(orders[i])]
             pred_list, nodex_idxs = [],[]
             stop_idxs, stop_list, nodey_idxs, node_target = [],[],[],[]
+
+            # Get the ground truth labels for child connection / child node type predictions.
             for i in batch_list:
                 xid, yid, ylabel = orders[i][t]
                 if len(orders[i]) > t+1:
@@ -350,23 +363,24 @@ class MolDecoder(nn.Module):
             stop_list = torch.LongTensor(stop_list).to(device)
             batch_list = torch.LongTensor(batch_list).to(device)
             
-            # Atom Embedding
+            # Get the Atom Embeddings learned from MPN in encoder and update graphs
             hatom1 = self.encoder.encode_atom(cur_graph_tensors)
             hatom2 = self.get_atom_embedding(y_tree_batch, graph_tensors, nodey_idxs)
             cur_graph_tensors, graph_mask = self.update_graph_mask(y_graph_batch, tree_tensors, graph_tensors, graph_mask, nodey_idxs)
             hatom3 = self.encoder.encode_atom(cur_graph_tensors)
             
-            # Node Embedding
+            # Get the Node embeddings learned from MPN in encoder and update trees
             hnode1 = self.get_node_embedding(cur_tree_tensors, nodex_idxs, tree_mask, hatom1)
             tmp_add_vecs = index_select_ND(z_add_vecs, 0, batch_list)
+            cur_tree_tensors, tree_mask = self.update_tree_mask(y_tree_batch, tree_tensors, tree_mask, nodey_idxs)
+            hnode2 = self.get_node_embedding(cur_tree_tensors, stop_idxs, tree_mask, hatom3)
+            
+            # Get the embeddings and ground truth labels for node type predictions
             node_hidden = torch.cat((hnode1, tmp_add_vecs), dim=1)
             node_targets.append(node_target)
             node_hiddens.append(node_hidden)
             
-            cur_tree_tensors, tree_mask = self.update_tree_mask(y_tree_batch, tree_tensors, tree_mask, nodey_idxs)
-            hnode2 = self.get_node_embedding(cur_tree_tensors, stop_idxs, tree_mask, hatom3)
-            
-            # Topo embeddings and ground truth labels
+            # Get the embeddings and ground truth labels for child connections prediction
             tmp_add_vecs = index_select_ND(z_add_vecs, 0, batch_list)
             topo_hidden1 = node_hidden.clone()
             topo_target1 = [1] * len(batch_list)
@@ -379,11 +393,12 @@ class MolDecoder(nn.Module):
             topo_target = topo_target1 + topo_target2
             topo_targets.append(torch.FloatTensor(topo_target).to(device))
             
-
             
+            # Attachment Prediction to predict the attachment between the 
+            # parent node and the child node (the addded new node)
             # ===============================================================
             
-            # Atom Prediction embeddings and ground truth labels
+            # Attachemnt Prediction embeddings and ground truth labels
             clusters1, clusters2 = [],[]
             atom1_hidden2, atom2_hidden2 = [],[]
             atom1_target1, atom1_target2 = [],[]
@@ -395,32 +410,40 @@ class MolDecoder(nn.Module):
             for j, pred in enumerate(pred_list):
                 xid, yid, k = pred
                 
-                # If the parent node is a ring (atoms > 2)
+                # If the parent node is a ring (atoms > 2), we need to predict 
+                # the parent attachment atoms in the parent node.
                 if len(y_tree_batch.nodes[xid]['clq']) > 2:
-                    # If the child node is a ring
-                    # the attachment between child node and parent node can be a bond
+                    # If the child node is also a ring, then the attachment
+                    # between these two ring nodes can be a bond; otherwise, 
+                    # the attachment contains only one single atom.
                     if len(y_tree_batch.nodes[yid]['clq']) > 2:
                         target_idx1 = y_tree_batch[xid][yid]['label']
+                        
+                        # atom feature
                         cluster1 = y_tree_batch.nodes[xid]['clq']
                         pad = torch.zeros((len(cluster1))).to(device).long()
                         cluster1 = torch.LongTensor(cluster1).to(device)
 
-                        # add bond
+                        # bond feature
                         cluster2 = torch.LongTensor(y_tree_batch.nodes[xid]['bonds']).to(device).long()
                         
+                        # ground truth label for prediction
                         if len(y_tree_batch[xid][yid]['anchor']) > 1:
                             target_idx1 = target_idx1 + cluster1.size(0)
                         
                         pad_cluster1 = torch.stack([cluster1, pad], dim=1)
                         cluster = torch.cat((pad_cluster1, cluster2), dim=0)
                     else:
+                        # ground truth label
                         target_idx1 = y_tree_batch[xid][yid]['label']
+                        
+                        # atom feature
                         cluster1 = torch.LongTensor(y_tree_batch.nodes[xid]['clq']).to(device)
-                        cluster2 = torch.zeros(cluster1.size(0)).to(device).long()
+                        pad = torch.zeros(cluster1.size(0)).to(device).long()
 
-                        cluster = torch.stack([cluster1, cluster2], dim=1)
+                        cluster = torch.stack([cluster1, pad], dim=1)
                     
-                    # Atom 1 embeddings and labels preparation
+                    # Get the embeddings and labels for the attachment point prediction at parent node
                     atom1_hidden1 = index_select_ND(hatom1, 0, cluster).sum(dim=1)
                     uniq_atom1_hidden1, inverse_idx = unique_tensor(atom1_hidden1)
                     clusters1.append(uniq_atom1_hidden1)
@@ -440,20 +463,27 @@ class MolDecoder(nn.Module):
                 
                 # ********************************************************
                 
-                # If the child node is a ring  
+                # If the child node is a ring, we need to predict the attachment point
+                # at the child node.
                 if len(y_tree_batch.nodes[yid]['clq']) > 2:
-                    # and the parent node is a ring
-                    # the attachment can be a bond
+                    # the attachment can be a bond if parent node is also a ring node.
+                    # Get the embeddings and labels for attachment point prediction
                     if len(y_tree_batch.nodes[xid]['clq']) > 2:
                         is_ring = 2
-                        target_idx1 = y_tree_batch[yid][xid]['label']
+
+                        # atom feature
                         cluster1 = y_tree_batch.nodes[yid]['clq']
                         pad = torch.zeros((len(cluster1))).to(device).long()
-                        
-                        cluster2 = torch.LongTensor(y_tree_batch.nodes[yid]['bonds']).to(device)
                         cluster1 = torch.LongTensor(cluster1).to(device)
+                        
+                        # bond feature
+                        cluster2 = torch.LongTensor(y_tree_batch.nodes[yid]['bonds']).to(device)
+                        
+                        # ground truth label
+                        target_idx1 = y_tree_batch[yid][xid]['label']
                         if len(y_tree_batch[yid][xid]['anchor']) > 1:
                             target_idx1 = target_idx1 + cluster1.size(0)
+                        
                         cluster1 = torch.stack([cluster1, pad], dim=1)
                         cluster = torch.cat((cluster1, cluster2), dim=0)
                         
@@ -467,10 +497,11 @@ class MolDecoder(nn.Module):
                     attach_atoms = y_tree_batch[xid][yid]['anchor']
                     atom2_hidden1 = index_select_ND(hatom2, 0, cluster).sum(dim=1)
                     
-                    
+                    # keep only unique candidate attachment point
                     uniq_atom2_hidden1, inverse_idx = unique_tensor(atom2_hidden1)
                     cands_size = uniq_atom2_hidden1.size(0)
                     
+                    # If the number of candidates is greater than 1, then prediction is required.
                     if cands_size > 1:
                         clusters2.append(uniq_atom2_hidden1)
                         
@@ -486,7 +517,7 @@ class MolDecoder(nn.Module):
                         atom2_hidden2.append(y_atom_hidden)
                         off_set2 = off_set2 + cands_size
             
-            # Prepare the embeddings and targets of atom 1 prediction            
+            # Prepare the embeddings and targets of attachment point prediction in parent node      
             if len(clusters1) > 0:
                 atom1_hidden1 = torch.cat(clusters1, dim=0)
                 atom1_hidden2 = torch.cat(atom1_hidden2, dim=0)
@@ -496,7 +527,7 @@ class MolDecoder(nn.Module):
                 atom1_targets2.extend(atom1_target2)
                 atom1_labels.extend(atom1_label)
             
-            # Prepare the embeddings and targets of atom 2 prediction
+            # Prepare the embeddings and targets of attachment point prediction in child node
             if len(clusters2) > 0:
                 atom2_hidden1 = torch.cat(clusters2, dim=0)
                 atom2_hidden2 = torch.cat(atom2_hidden2, dim=0)
@@ -516,7 +547,7 @@ class MolDecoder(nn.Module):
         node_acc = torch.eq(node, node_targets).float()
         node_acc = torch.sum(node_acc) / node_targets.nelement()
         
-        # Topo Prediction
+        # child node connection Prediction
         topo_hiddens = torch.cat(topo_hiddens, dim=0)
         topo_scores = self.predict(topo_hiddens, "topo").squeeze(dim=1)
         topo_targets = torch.cat(topo_targets, dim=0)
@@ -526,7 +557,7 @@ class MolDecoder(nn.Module):
         topo_acc = torch.sum(topo_acc) / topo_targets.nelement()
         topo_rec = recall_score(topo_targets.data.to('cpu'), topo.data.to('cpu'))
         
-        # atom 1 prediction
+        # attachment point prediction in parent node
         atom1_labels = torch.LongTensor(atom1_labels).to(device)
         atom1_targets1 = torch.LongTensor(atom1_targets1).to(device)
         atom1_targets2 = torch.stack(atom1_targets2, dim=0)
@@ -537,7 +568,7 @@ class MolDecoder(nn.Module):
         atom1_loss = atom1_loss / atom1_targets1.size(0)
         atom1_num = atom1_targets1.size(0)
         
-        # atom 2 prediction
+        # attachment point prediction in child node
         if len(atom2_labels) > 0:
             atom2_labels = torch.LongTensor(atom2_labels).to(device)
             atom2_targets1 = torch.LongTensor(atom2_targets1).to(device)
@@ -561,7 +592,20 @@ class MolDecoder(nn.Module):
         return loss, acc, rec, num
     
     def atom_loss(self, scores, targets1, targets2, labels):
-        """ calculate the loss of assignment prediction
+        """ calculate the loss of predictions with scores.
+        These predictions assign a score for each candidate, and predict the candidate with 
+        the maximum score.
+
+        Args:
+            scores: the predicted scores for candidates of all predictions at a time step
+                    for all molecules within a batch.
+            targets1: the index of candidates with the maximum scores for each prediction
+            targets2: the index of all candidates for each prediction
+            labels: the ground truth label
+
+        Return:
+            loss: negative log likelihood loss
+            acc: prediction accuracy
         """
         scores = torch.cat([torch.tensor([[0.0]]).to(device), scores], dim=0)
         scores1 = index_select_ND(scores, 0, targets1)
@@ -611,12 +655,12 @@ class MolDecoder(nn.Module):
 
     
     def decode(self, x_tensors, latent_vecs, x_node_vecs, x_graphs, mol, reselect_num):
-        """ Optimize the input molecule during testing
+        """ Optimize the input molecule for better properties during testing
         Args:
-            x_tensors:
-            latent_vecs:
-            x_node_vecs:
-            x_graphs:
+            x_tensors: the embedding of input molecule
+            latent_vecs: the sampled latent embedding
+            x_node_vecs: the node embeddings of input molecule
+            x_graphs: the graph and tree structure of input molecule
         """
         
         x_tree, x_graph = x_graphs
@@ -653,9 +697,9 @@ class MolDecoder(nn.Module):
             # **************************************************************            
             # delete fragments prediction
 
-            # if the number of connected fragments is greater than 1
+            # if the number of connected fragments is greater than 1,
+            # we need to predict removal fragments; otherwise, we don't predict removal fragments.
             if len(x_tree.edges(target_idx)) > 1:
-                # delete fragments prediction
                 neighbors = torch.LongTensor([edge[1] for edge in x_tree.edges(target_idx)]).to(device)
                 neighbors_vecs = index_select_ND(x_node_vecs, 0, neighbors)
                 
@@ -664,14 +708,14 @@ class MolDecoder(nn.Module):
                 dele = torch.ge(del_scores, 0) * neighbors
                 del_idxs = dele[dele>0]
         
-                # If the disconnection site is a bond,
+                # If the disconnection site is a bond node, 
+                # then It is illegal to delete two fragments or do not delete fragments
                 if len(tart_atoms) == 2:
-                    # It is illegal to delete two fragments or not delete any fragments
                     if len(del_idxs) == 2 or len(del_idxs) == 0:
                         continue
-                # If the number of deleted fragments is 0
+                # If the number of deleted fragments is 0,
+                # check that the predicted disconnection site has empty valency for new bonds.
                 elif len(del_idxs) == 0:
-                    # It must be able to connect with other new fragments
                     attach = False
                     for aid in tart_atoms:
                         atom = mol.GetAtomWithIdx(aid-1)
@@ -681,8 +725,7 @@ class MolDecoder(nn.Module):
                     if not attach:
                         continue
                 
-
-                # delete nodes                
+                # get the nodes in the predicted removal fragments.      
                 for del_idx in del_idxs:
                     del_idx = del_idx.item()
                     del_node_idxs.add(del_idx)
@@ -697,6 +740,7 @@ class MolDecoder(nn.Module):
                         del_node_idxs.update(new_nei_idx)
                         nei_idx = new_nei_idx
 
+                # the number of nodes in removal fragments should be small
                 if len(del_node_idxs) < len(x_tree.nodes) / 2:
                     break
             else:
@@ -705,7 +749,7 @@ class MolDecoder(nn.Module):
         # ========================================================================
         # Remove and update deleted nodes
 
-        # remove nodes from tree x
+        # remove deleted nodes from tree x
         for idx in del_node_idxs:
             del_atoms = x_tree.nodes[idx]['clq']
             del_atom_idxs.update(del_atoms)
@@ -717,7 +761,7 @@ class MolDecoder(nn.Module):
             
             new_tree.remove_node(idx)
         
-        # remove atoms from graph x
+        # remove atoms in those deleted nodes from graph x
         for idx in del_atom_idxs:
             if idx in tart_atoms: continue
             new_graph.remove_node(idx)
@@ -734,7 +778,7 @@ class MolDecoder(nn.Module):
         for mess_idx, (i, j) in enumerate(new_graph.edges):
             new_graph[i][j]['mess_idx'] = mess_idx + 1
         
-        
+        # update atom idxs in tree x
         node_mapping = {}
         for idx, jdx in enumerate(new_tree.nodes):
             node_mapping[jdx] = idx+1
@@ -751,6 +795,7 @@ class MolDecoder(nn.Module):
             bonds = new_tree.nodes[jdx]['bonds']
             new_tree.nodes[jdx]['bonds'] = [[atom_mapping[aid] for aid in bond] for bond in bonds]
 
+        # update message idxs and anchor atom idxs in tree x
         new_tree = nx.relabel_nodes(new_tree, node_mapping)
         for mess_idx, (i, j) in enumerate(new_tree.edges):
             new_tree[i][j]['mess_idx'] = mess_idx + 1
@@ -759,7 +804,7 @@ class MolDecoder(nn.Module):
 
 
         # =======================================================================
-        # adding new fragments prediction
+        # new fragments prediction
  
         # prepare embeddings
         tree_tensors, graph_tensors = MolTree.tensorize_decoding(new_tree, new_graph, self.vocab, self.avocab, extra_len=8)
@@ -776,32 +821,34 @@ class MolDecoder(nn.Module):
             parent_node = torch.LongTensor([nodes[0]]).to(device)
             try:
                 masks = (torch.ones((tree_tensors[0].size(0), 1)).to(device), torch.ones((tree_tensors[1].size(0), 1)).to(device))
-            except:
-                pdb.set_trace()
+            except Exception as e:
+                print(e)
+            
             mol = graph_to_mol(new_graph)
             hatom1 = self.encoder.encode_atom(graph_tensors) 
             node_embedding = self.get_node_embedding(tree_tensors, parent_node, masks , hatom1)[0,:]
             
-            # topo prediction
+            # child node connection prediction
             topo_hidden = torch.cat((node_embedding, diff_add_vecs), dim=0)
             topo = self.predict(topo_hidden, "topo")
             step += 1
             if step > max_step: break
             
-            # If do not add new nodes
+            # stop if topo is false
             if topo.item() <= 0:
                 del nodes[0]
                 continue
             else:
-                # predict node type
+                # predict the node type
                 node_scores = self.predict(topo_hidden, "node")
                 _, sort_wid = torch.sort(node_scores, dim=0, descending=True)
                   
                 for wid in sort_wid[:10]:
-                    # add new nodes with assignment prediction
+                    # try whether the predicted the new node can be added into the molecule without violating valency law
                     success = self.try_add_mol(new_tree, new_graph, nodes[0], self.vocab.get_smiles(wid), node_embedding, hatom1, diff_add_vecs, amap, mol)
                     
                     if success:
+                        # add this new node into the embeddings, trees and graphs of molecule
                         node_idx = len(new_tree.nodes)
                         tree_tensors = self.update_tensor(new_tree, tree_tensors, [node_idx], tree=True)                       
 
@@ -821,6 +868,8 @@ class MolDecoder(nn.Module):
         return mol, reselect
     
     def update_tensor(self, graph, tensors, node_idxs, tree=False):
+        """ Add new nodes into the graph structure and embeddings
+        """
         #
         if tree:
             fnode, fmess, agraph, bgraph, cgraph, dgraph, _ = tensors

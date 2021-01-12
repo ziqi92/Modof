@@ -52,6 +52,42 @@ def predict(smiles, lr, vocab, avocab, reselect, ori_smiles, iternum, output):
     output.write(s)
     print(s)
     return score1, score2, atomnum, new_smiles, sim, ori_sim, reselect
+
+def output_iter(res, res_file):
+    if len(res) == 0:
+        s = "num: 0 avg(per): 0.00 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
+
+    else:
+        avg_imp = sum([x[1] for x in res])/len(res)
+        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in res])/len(res))
+        avg_sim = sum([x[2] for x in res])/len(res)
+        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res])/len(res))
+
+        avg_ori_imp = sum([x[10] for x in res])/len(res)
+        std_ori_imp = math.sqrt(sum([(x[10] - avg_ori_imp)**2 for x in res])/len(res))
+        avg_ori_sim = sum([x[11] for x in res])/len(res)
+        std_ori_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res])/len(res))
+
+        s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(res), sum([x[0] for x in res])/len(res), avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[5] for x in res])/len(res[i]),sum([x[7] for x in res])/len(res))
+
+    res_file.write(s)
+    res_file.flush()
+
+def output_best(best_res, res_file):
+    if len(best_res) == 0:
+        s = "num: 0 avg(per): 0.00 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n" 
+    else:
+        avg_imp = sum([x[1] for x in best_res])/len(best_res)
+        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in best_res])/len(best_res))
+        avg_sim = sum([x[2] for x in best_res])/len(best_res)
+        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res])/len(best_res))
+        
+        s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(best_res), sum([x[0] for x in best_res])/len(best_res), avg_imp, std_imp, avg_sim, std_sim, sum([x[5] for x in best_res])/len(best_res), sum([x[7] for x in best_res])/len(best_res))
+    res_file.write(s)
+    res_file.flush()
+    
+
+
     
 parser = ArgumentParser()
 parser.add_argument("-t", "--test", dest="test_path")
@@ -114,6 +150,7 @@ outfiles = [open("%s_iter%d.txt" % (output_path, i), 'w') for i in range(opts.it
 output = []
 best_smiles = []
 time1 = time.time()
+
 # for each input molecule in data
 for smiles in data[start:end]:
     best_score1, best_score2, best_imp, best_ori_imp, best_atom_num, best_sim, best_orisim = 0,0,None,0,0,0,0
@@ -181,169 +218,51 @@ for smiles in data[start:end]:
 
 
 
-# ========================================== Output iteration results =====================================================
+# ========================================== Output iteration results =============================================
 
 for i in range(opts.iternum):
     outfiles[i].close()
     res_file.write("iter%d:\n" % i)
 
-    # *******************************************************
     # Total number
-    if len(res[i]) == 0:
-        s = "num: 0 avg(per): 0.00 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-       
-    else:
-        avg_imp = sum([x[1] for x in res[i]])/len(res[i])
-        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in res[i]])/len(res[i]))
-        avg_sim = sum([x[2] for x in res[i]])/len(res[i])
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res[i]])/len(res[i]))
-        
-        avg_ori_imp = sum([x[10] for x in res[i]])/len(res[i])
-        std_ori_imp = math.sqrt(sum([(x[10] - avg_ori_imp)**2 for x in res[i]])/len(res[i]))
-        avg_ori_sim = sum([x[11] for x in res[i]])/len(res[i])
-        std_ori_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res[i]])/len(res[i]))
-        
-        s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(res[i]), sum([x[0] for x in res[i]])/len(res[i]), avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[5] for x in res[i]])/len(res[i]),sum([x[7] for x in res[i]])/len(res[i]))
+    res_file.write("[total]\n")
+    output(res[i], res_file) 
     
-    res_file.write(s)
-    res_file.flush()
-    
-
-    # ******************************************************
     # Positive
-    n = 0
-    for x in res[i]:
-        if x[1] > 0:
-            n=n+1
-    
-    if n == 0:
-        s = "pos: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-    else:
-        avg_imp = sum([x[1] for x in res[i] if x[1]>0])/n
-        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in res[i] if x[1]>0])/n)
-        avg_sim = sum([x[2] for x in res[i] if x[1]>0])/n
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res[i] if x[1]>0])/n)
-        
-        avg_ori_imp = sum([x[10] for x in res[i] if x[1]>0])/n
-        std_ori_imp = math.sqrt(sum([(x[10] - avg_ori_imp)**2 for x in res[i] if x[1]>0])/n)
-        avg_ori_sim = sum([x[11] for x in res[i] if x[1]>0])/n
-        std_ori_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res[i] if x[1]>0])/n)
-        
-        s = "pos: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in res[i] if x[1] > 0])/n, avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[5] for x in res[i] if x[1]>0])/n,sum([x[7] for x in res[i] if x[1]>0])/n)
-    res_file.write(s)
-    res_file.flush()
+    res_file.write("[positive]\n")
+    tmp_res = [x for x in res[i] if x[1] > 0]
+    output(tmp_res, res_file)
 
-
-    # ******************************************************
     # Negative
-    n = 0
-    for x in res[i]:
-        if x[1] < 0:
-            n=n+1
+    res_file.write("[negative]\n")
+    tmp_res = [x for x in res[i] if x[1] < 0]
+    output(tmp_res, res_file)
     
-    if n == 0:
-        s = "neg: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-    else:
-        avg_imp = sum([x[1] for x in res[i] if x[1]<0])/n
-        std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in res[i] if x[1]<0])/n)
-        avg_sim = sum([x[2] for x in res[i] if x[1]<0])/n
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res[i] if x[1]<0])/n)
-    
-        avg_ori_imp = sum([x[10] for x in res[i] if x[1]<0])/n
-        std_ori_imp = math.sqrt(sum([(x[10] - avg_ori_imp)**2 for x in res[i] if x[1]<0])/n)
-        avg_ori_sim = sum([x[11] for x in res[i] if x[1]<0])/n
-        std_ori_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res[i] if x[1]<0])/n)
-
-        s = "neg: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(ori_sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in res[i] if x[1] < 0])/n, avg_imp, std_imp, avg_ori_imp, std_ori_imp, avg_sim, std_sim, avg_ori_sim, std_ori_sim, sum([x[5] for x in res[i] if x[1]<0])/n,sum([x[7] for x in res[i] if x[1]<0])/n)
-    
-    res_file.write(s)
-    res_file.flush()
-
-    # ******************************************************
     # Zero
-    n = 0
-    for x in res[i]:
-        if x[1] == 0:
-            n=n+1
-    
-    if n == 0:
-        s = "zero: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(ori_imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(ori_sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-    else:
-        avg_sim = sum([x[2] for x in res[i] if x[1]==0])/n
-        std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in res[i] if x[1]==0])/n)
-    
-        avg_ori_sim = sum([x[11] for x in res[i] if x[1]==0])/n
-        std_sim = math.sqrt(sum([(x[11] - avg_ori_sim)**2 for x in res[i] if x[1]<0])/n)
-        s = "zero: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(ori_imp): 0.00(0.00) avg(sim): %.2f(%.2f) avg(ori_sim): 1.00(0.00) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in res[i] if x[1] == 0])/n, 0.00, 0.00, avg_sim, std_sim, sum([x[5] for x in res[i] if x[i] ==0])/n, sum([x[7] for x in res[i] if x[1]==0])/n)
-    res_file.write(s)
-
-
+    res_file.write("[zero]\n")
+    tmp_res = [x for x in res[i] if x[1] == 0]
+    output(tmp_res, res_file)
+     
 # =========================================== Output the best results ============================================
 
 # Total
-avg_imp = sum([x[1] for x in best_res])/len(best_res)
-std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in best_res])/len(best_res))
-avg_sim = sum([x[2] for x in best_res])/len(best_res)
-std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res])/len(best_res))
+res_file.write("[best total]\n")
+output(best_res, res_file)
 
-s = "num: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(best_res), sum([x[0] for x in best_res])/len(best_res), avg_imp, std_imp, avg_sim, std_sim, sum([x[5] for x in best_res])/len(best_res), sum([x[7] for x in best_res])/len(best_res))
-res_file.write(s)
-res_file.flush()
-
-# ************************************************
 # Positive
-n = 0
-for x in best_res:
-    if x[1] > 0:
-        n=n+1
-if n == 0:
-    s = "pos: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-else:
-    avg_imp = sum([x[1] for x in best_res if x[1]>0])/n
-    std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in best_res if x[1]>0])/n)
-    avg_sim = sum([x[2] for x in best_res if x[1]>0])/n
-    std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res if x[1]>0])/n)
-    
-    s = "pos: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in best_res if x[1] > 0])/n, avg_imp, std_imp, avg_sim, std_sim, sum([x[5] for x in best_res if x[1]>0])/n,sum([x[7] for x in best_res if x[1]>0])/n)
-res_file.write(s)
-res_file.flush()
+res_file.write("[best positive]\n")
+tmp_res = [x for x in best_res if x[1] > 0]
+output(tmp_res, res_file)
 
-# ************************************************
 # Negative
-n = 0
-for x in best_res:
-    if x[1] < 0:
-        n=n+1
+res_file.write("[best negative]\n")
+tmp_res = [x for x in best_res if x[1] < 0]
+output(tmp_res, res_file)
 
-if n == 0:
-    s = "neg: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-else:
-    avg_imp = sum([x[1] for x in best_res if x[1]<0])/n
-    std_imp = math.sqrt(sum([(x[1] - avg_imp)**2 for x in best_res if x[1]<0])/n)
-    avg_sim = sum([x[2] for x in best_res if x[1]<0])/n
-    std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res if x[1]<0])/n)
-
-    s = "neg: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in best_res if x[1] < 0])/n, avg_imp, std_imp, avg_sim, std_sim, sum([x[5] for x in best_res if x[1]<0])/n,sum([x[7] for x in best_res if x[1]<0])/n)
-
-res_file.write(s)
-res_file.flush()
-
-# *************************************************
 # Zero
-n = 0
-for x in best_res:
-    if x[1] == 0:
-        n=n+1
-
-if n == 0:
-    s = "zero: 0 avg(per): 0.0000 avg(imp): 0.00(0.00) avg(sim): 0.00(0.00) avg(atom):0.00 avg(newatom):0.00 \n"
-else:
-    avg_sim = sum([x[2] for x in best_res if x[1]==0])/n
-    std_sim = math.sqrt(sum([(x[2] - avg_sim)**2 for x in best_res if x[1]==0])/n)
-
-    s = "zero: %d avg(per): %.4f avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (n, sum([x[0] for x in best_res if x[1] == 0])/n, 0.00, 0.00, avg_sim, std_sim, sum([x[5] for x in best_res if x[i] ==0])/n, sum([x[7] for x in best_res if x[1]==0])/n)
-
-res_file.write(s)
+res_file.write("[best zero]\n")
+tmp_res = [x for x in best_res if x[1] == 0]
+output(tmp_res, res_file)
 res_file.close()
 
 # Save the optimized molecule into output file

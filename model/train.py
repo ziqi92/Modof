@@ -45,7 +45,6 @@ if __name__ == "__main__":
     parser.add_argument('--add_ds', action='store_true', help='a boolean used to control whether adding the embedding of disconnection site '+\
                         'into the latent embedding or not.')
     parser.add_argument('--clip_norm', type=float, default=50.0, help='')
-    #parser.add_argument('--alpha', type=float, default=10, help='')
     parser.add_argument('--beta', type=float, default=0.000, help='a float used to control the weight of kl loss')
     parser.add_argument('--beta_anneal_iter', type=int, default=500, help='')
     parser.add_argument('--step_beta', type=float, default=0.005, help='a float used to adjust the value of beta')

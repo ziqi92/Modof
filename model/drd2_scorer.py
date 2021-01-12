@@ -1,3 +1,4 @@
+# Code from https://github.com/wengong-jin/iclr19-graph2graph
 #!/usr/bin/env python
 import numpy as np
 from rdkit import Chem
