@@ -3,12 +3,13 @@
 
 This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.pdf
 
+## Requirements
+
+Operating systems: Red Hat Enterprise Linux (RHEL) 7.7
 
 
-# Requirements
+* python==3.6.12
 
-
-* python==3.x
 * scikit-learn==0.22.1
 
 * networkx==2.4
@@ -19,41 +20,75 @@ This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.p
 
 * scipy==1.4.1
 
+  
 
-# Data preprocessing
-## Provided Processed Dataset
+## Installation guide
+
+Download the code and dataset with the command:
+
+```
+git clone https://github.com/ziqi92/Modof.git
+```
+
+The download can take several minutes.
+
+
+
+## Data processing
+
+### Provided Processed Dataset
+
 data/logp06/tensors-\*.pkl contains the processed data used in our paper. The raw dataset of this processed dataset is from https://github.com/wengong-jin/iclr19-graph2graph.
-Each data point in these file has three elements:
+
+Each data point in these processed data files has three elements:
+
 ```
 (<MolTree object for molecule x>, <MolTree object for molecule y>, <edit path between molecule x and y>)
+# Check the file `model/mol_tree.py` for the class MolTree
 ```
 
-preprocess/ contains the code we used to get this processed dataset.
-To get this processed dataset, you can run
+<code>preprocess/</code> contains the code we used to preprocess the dataset.
+
+To get the processed dataset we used, you can run
+
 ```
 python ./preprocess/preprocess.py
 ```
-The processed dataset will be saved in directory "data/logp06".
+The processed data will be saved in the directory <code>data/logp06</code>.
 
-You can also use this code to process a new dataset with molecule pairs by running
+
+
+You can also use our code to process a new dataset (i.e., the dataset must be molecule pairs) by running the following command.
+
 ```
 python ./preprocess/preprocess.py --train <train_path> --vocab <vocab_path>
 ```
 The processed dataset will be saved in the same directory with <train_path>
 
+## Training
 
-# Training
 
-
-Train *Modof* model with command below:
+Running example
 
 ```
-python ./model/train.py --depthT 3 --depthG 5 --hidden_size 64 --latent_size 8 --add_ds --beta 0.1 --step_beta 0.05 --max_beta 0.5 --warmup 2000 --beta_anneal_iter 500
+python ./model/train.py --depthT 3 --depthG 5 --hidden_size 64 --latent_size 8 --add_ds --beta 0.1 --step_beta 0.05 --max_beta 0.5 --warmup 2000 --beta_anneal_iter 500 --save_iter 3000 --print_iter 20 --train ./data/logp06/
 ```
 
-The model will be saved at result/model.iter-*.pt
+<kbd>save_iter</kbd> defines how often the model would be saved. In the above example, the model will be saved every 3,000 steps. The model will be saved at result/model.iter-*.pt
+
+<kbd>print_iter</kbd> defines how often the intermediate result would be displayed (e.g., the accuracy of each prediction, the loss of each function).
+
+Use the command <code>python ./model/train.py -h</code> to check the meaning of other parameters.
+
+It can take no more than **4 hours** to train a *modof* model for 6,000 steps.  
 
 
 
+## Test
 
+To test a trained model, you can run the file <code>./model/optimize.py</code> with following command:
+
+```
+python ./model/optimize.py --test ./data/logp06/test.txt --vocab ./data/logp06/vocab.txt --model <model data path> -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800
+```
 
