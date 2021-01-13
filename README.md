@@ -144,12 +144,14 @@ python ./model/mol_tree.py --train train_path --out vocab_path
 To test a trained model, you can run the file <code>./model/optimize.py</code> with following command:
 
 ```
-python ./model/optimize.py --test test_path --vocab vocab_path --model model_path -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 --num N -s 0.6
+python ./model/optimize.py --test test_path --vocab vocab_path --model model_path --save_dir test_result_path --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 --num N -s 0.6
 ```
 
 Note that the option "hidden_size", "latent_size", "depthT" and "depthG" must be the same with the train model. 
 
 <kbd>-s</kbd> specifies the similarity threshold of generated molecules.
+
+<kbd>save_dir</kbd> specifies the path of results. All result files will be saved into the test_result_path directory
 
 <kbd>test_path</kbd> specifies the path of test data. The test path defaults to be the provided test data (i.e., ./data/logp06/test.txt) if not specified.
 
