@@ -81,7 +81,7 @@ Note that the training pairs of molecules for *Modof* model is required to diffe
 Example:
 
 ```
-
+python ./data_preprocessing/preprocess.py --train ./data/logp06/train_pairs.txt –-output new_tensors –-batch_size 10000 --batch_id 0 
 ```
 
 ## Training
