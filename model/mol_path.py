@@ -327,4 +327,3 @@ if __name__ == "__main__":
         slist = SubtreeList(data[i][0], data[i][1], edges, rev_dict)
         slist.get_subtree_list()
         slist.print_path()
-        pdb.set_trace()

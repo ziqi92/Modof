@@ -352,19 +352,16 @@ if __name__ == "__main__":
     #lg.setLevel(rdkit.RDLogger.CRITICAL)
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--data", type=str, default="../data/test.txt", help="data path")
-    parser.add_argument("-o", "--out", type=str, default="../data/vocab.txt", help="vocabulary path")
+    parser.add_argument("-d", "--train", type=str, default="../data/", help="the path of training data")
+    parser.add_argument("-o", "--out", type=str, default="../data/vocab.txt", help="the path of vocabulary")
     args = parser.parse_args()
     
     cset = set()
-    f = open(args.data)
-        
-    #for line in f.readlines():
-    #    smiles = line.split()[0]
-    mol = MolTree("CCC1=C(C)/C(=C/c2cc(Cc3ccc(Cl)cc3)[nH]c2C)N=C1C")
-        
-    mol.set_revise(5, [6, 7])
-    pdb.set_trace() 
+    for file_name in os.listdir(args.train):
+        with open(os.path.join(args.train, file_name), 'rb') as f:
+            data = pickle.load(f)
+            for d in data: cset.update(set([label for _, label in mol.mol_tree.nodes(data='label')]))
+     
     with open(args.out, 'w') as f:
         for word in cset:
             f.write("%s\n" % word)

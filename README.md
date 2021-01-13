@@ -36,69 +36,123 @@ The download can take several minutes.
 
 ## Data processing
 
-### Provided Processed Dataset
+### 1.   Use provided processed dataset
 
-data/logp06/tensors-\*.pkl contains the processed data used in our paper. The raw dataset of this processed dataset is from https://github.com/wengong-jin/iclr19-graph2graph.
+If you want to use our provided processed dataset, please check the directory: <code>./data/logp06/</code>
 
-Each data point in these processed data files has three elements:
+ 
+
+In this directory, you will see the following files:
+
+1)   multiple <code>tensors-\*.pkl</code> files. These binary files contain the processed data including pairs of molecules and their edit paths. The data in these <code>\*.pkl</code> files should be used for model training. All the <code>tensors-\*.pkl</code> files will be read into *Modof* as training data. If you are using your own training data rather than the provided one, you can generate such <code>tensors-\*.pkl</code> using the data processing tools as will be described below.  
+
+2)   <code>train_pairs.txt</code> file. This file contains all pairs of molecules used in [Jin’s paper](https://arxiv.org/pdf/1812.01070.pdf). This file is identical to train_pairs.txt file in  (https://github.com/wengong-jin/iclr19-graph2graph/tree/master/data/logp06). Please note that the molecule pairs contained in <code>tensors-\*.pkl</code> files are a subset of all the molecule pairs in train_pairs.txt. 
+
+* File format:  each line in <code>train_pairs.txt</code> has two SMILE strings, separated by an empty space. The first SMILE string represents the molecule with worse properties, and the second SMILE string represent the molecule with better properties. 
+
+3)   <code>test.txt</code>. This file contains the SMILE strings of single molecules that are used as the testing molecules in XXX’s paper. These molecules are also the testing molecules used in our Modof. 
+
+* File format: each line in <code>test.txt</code> is a SMILE string of a testing molecule. 
+
+4)   <code>vocab.txt</code>. This file contains all the substructures of training molecules in <code>tensors-*.pkl</code> files. These substructures are in SMILE strings. 
+
+* File format: each line in vocab.txt is a SMILE string of a substructures. The *i*-th row represents the *i*-th substructure (i.e., ‘i’ here is the substructure ID). 
+
+  
+
+### 2.   Use your own data
+
+If you want to train *Modof* using your own training data, you will need to process your own data into the same format as the processed data, respectively. All the code for data processing is provided under data_processing. 
+
+To process your own data, run 
 
 ```
-(<MolTree object for molecule x>, <MolTree object for molecule y>, <edit path between molecule x and y>)
-# Check the file `model/mol_tree.py` for the class MolTree
+python ./data_preprocessing/preprocess.py --train train_file_name –-output out_file_name –-batch_size NNN --batch_id ZZZ 
 ```
 
-<code>preprocess/</code> contains the code we used to preprocess the dataset.
+where train_file_name is the name of the file that contains all the molecule pairs that should be used for *Modof* training. This file should have the same format as <code>train_pairs.txt</code> as above. The above command (1) will generate $n$ (i.e., $n = \text{ceil}(\frac{\text{len}(data)}{\text{NNN}})$) out_file_name-ZZZ.pkl files in the same directory as train_file_name. These files will be used in Modof training. For other options of this command, please check –help.
 
-To get the processed dataset we used, you can run
-
-```
-python ./preprocess/preprocess.py
-```
-The processed data will be saved in the directory <code>data/logp06</code>.
+Note that the training pairs of molecules for *Modof* model is required to differ in terms of only one fragment. The training pairs which differ in multiple fragments will be filtered out by the above command. To get enough training pairs for *Modof* model, it is expected that the molecules in your own training data are very similar. 
 
 
-
-You can also use our code to process a new dataset (i.e., the dataset must be molecule pairs) by running the following command.
-
-```
-python ./preprocess/preprocess.py --train <train_path> --vocab <vocab_path>
-```
-The processed dataset will be saved in the same directory with <train_path>
 
 ## Training
 
 
-Running example
+To train our *Modof* model, run 
 
 ```
-python ./model/train.py --depthT 3 --depthG 5 --hidden_size 64 --latent_size 8 --add_ds --beta 0.1 --step_beta 0.05 --max_beta 0.5 --warmup 2000 --beta_anneal_iter 500 --save_iter 3000 --print_iter 20 --train ./data/logp06/
+python ./model/train.py --depthT 3 --depthG 5 --hidden_size 64 --latent_size 8 --add_ds --beta 0.1 --warmup 2000 --beta_anneal_iter 500 --step_beta 0.05 --max_beta 0.5 --save_iter 3000 --print_iter 20 --train train_path --vocab vocab_path --save_dir model_path
 ```
 
-<kbd>save_iter</kbd> defines how often the model would be saved. In the above example, the model will be saved every 3,000 steps. The model will be saved at result/model.iter-*.pt
+<kbd>depthT</kbd>  specifies the depth of *tree* message passing neural networks.
 
-<kbd>print_iter</kbd> defines how often the intermediate result would be displayed (e.g., the accuracy of each prediction, the loss of each function).
+<kbd>depthG</kbd>  specifies the depth of *graph* message passing neural networks.
+
+<kbd>hidden_size</kbd> specifies the dimension of all hidden layers.
+
+<kbd>latent_size</kbd> specifies the dimension of latent embeddings.
+
+<kbd>add_ds</kbd> specifies whether or not to add the embedding of disconnection site into the latent embedding. This parameter is a bool value and will default to False when "--add_ds" is not present.
+
+<kbd>beta</kbd> specifies the initial value of weight of KL loss in the total loss.
+
+<kbd>warmup</kbd> specifies the number of steps that beta value remains unchanged at the beginning. (Each step represents an update of model on a single batch.)
+
+<kbd>beta_anneal_iter</kbd> specifies the number of steps that beta value is reduced by a certain value after the number of training steps.
+
+<kbd>step_beta</kbd> specifies the value used to reduce the value of beta.
+
+<kbd>max_beta</kbd> specifies the maximum value of beta.
+
+<kbd>save_iter</kbd> controls how often the model would be saved. In the above example, the model will be saved every 3,000 steps. The model will be saved at model_path/model.iter-*.pt
+
+<kbd>print_iter</kbd> controls how often the intermediate result would be displayed (e.g., the accuracy of each prediction, the loss of each function).
+
+<kbd>train</kbd> specifies the directory of training data. The program will extract the training pairs from all "pkl" files under this directory. The train path defaults to be the path of our provided dataset if not specified.
+
+<kbd>vocab</kbd> specifies the path of vocabulary of all substructures in the training data. You can generate the vocab file for your own training data with the provided code as will be described below. The vocab path defaults to be the path of our provided vocab file if not specified.
+
+<kbd>save_dir</kbd> specifies the path to save the trained model.  The model path defaults to be "./result" if not specified.
 
 Use the command <code>python ./model/train.py -h</code> to check the meaning of other parameters.
 
-It can take no more than **4 hours** to train a *modof* model for 6,000 steps.  
 
 
+**Generating Vocabulary file**: In the above command, the training of *Modof* model requires a vocabulary file that contains all the substructures in the molecules in all the training files under the train_path. This file should have the same format as in <code>vocab.txt</code> as above. 
+
+To generate the vocab file for your own training data, run
+
+```
+python ./model/mol_tree.py --train train_path --out vocab_path
+```
+
+
+
+**Running time:** It can take no more than **4 hours** to train a *modof* model using a GPU with our provided training data for 6,000 steps.  Typically, our model can produce decent results with 6,000 steps of training.
 
 ## Test
 
 To test a trained model, you can run the file <code>./model/optimize.py</code> with following command:
 
 ```
-python ./model/optimize.py --test ./data/logp06/test.txt --vocab ./data/logp06/vocab.txt --model <model data path> -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800 --num 20 -s 0.6
+python ./model/optimize.py --test test_path --vocab vocab_path --model model_path -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800 --num N -s 0.6
 ```
 
-<code>-s similarity_threshold</code> controls the similarity threshold of generated molecules.
-<code>-num value</code> controls the number of latent embedding samples for each molecule at each iteration
-<code>-iternum value</code> controls the number of iterations.
+Note that the option "hidden_size", "latent_size", "depthT" and "depthG" must be the same with the train model. 
 
-The outputs include:
-* <code>*-iter[0-num].txt</code> include the optimization results of each input molecule with all the latent embedding samples.
-* <code>*-iter[num]_results.txt</code> include the optimization results of each input molecule at all [num] iterations.
+<kbd>-s</kbd> specifies the similarity threshold of generated molecules.
+
+<kbd>test_path</kbd> specifies the path of test data. The test path defaults to be the provided test data (i.e., ./data/logp06/test.txt) if not specified.
+
+<kbd>vocab_path</kbd> specifies the path of vocab file. The vocab path defaults to be the provided vocab file (i.e., ./data/logp06/vocab.txt) if not specified.
+
+<kbd>num</kbd> specifies the number of latent embedding samples for each molecule at each iteration.
+<kbd>iternum</kbd> specifies the number of iterations for optimization.
+
+
+
+The outputs of the above command include:
+* <code>*-iter[0-N].txt</code> include the optimization results of each input molecule with all the latent embedding samples.
+* <code>*-iter[N]_results.txt</code> include the optimization results of each input molecule at all [num] iterations.
 * <code>*-smiles.txt</code> include the best optimized molecules among all iterations, the property scores of these optimized molecules and the similarities of these optimized molecules with input molecules.
-
-
