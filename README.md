@@ -62,7 +62,7 @@ In this directory, you will see the following files:
 
 ### 2.   Use your own data
 
-If you want to train *Modof* using your own training data, you will need to process your own data into the same format as the processed data, respectively. All the code for data processing is provided under data_processing. 
+f you want to train *Modof* using your own training data, you will need to process your own data into the same format as the processed data, respectively. All the code for data processing is provided under data_processing. 
 
 To process your own data, run 
 
@@ -70,11 +70,19 @@ To process your own data, run
 python ./data_preprocessing/preprocess.py --train train_file_name –-output out_file_name –-batch_size NNN --batch_id ZZZ 
 ```
 
-where train_file_name is the name of the file that contains all the molecule pairs that should be used for *Modof* training. This file should have the same format as <code>train_pairs.txt</code> as above. The above command (1) will generate $n$ (i.e., $n = \text{ceil}(\frac{\text{len}(data)}{\text{NNN}})$) out_file_name-ZZZ.pkl files in the same directory as train_file_name. These files will be used in Modof training. For other options of this command, please check –help.
+where train_file_name is the name of the file that contains all the molecule pairs that should be used for *Modof* training. This file should have the same format as <code>train_pairs.txt</code> as above. 
+
+For the <kbd>output</kbd> option, the above command (1) will generate n=(number of pairs) / NNN out_file_name-ZZZ.pkl files in the same directory as train_file_name. These files will be used in Modof training. For other options of this command, please check <code>–-help</code>.
+
+<kbd>batch_size</kbd> and <kbd>batch_id</kbd> is recommended to use for large training dataset. If your training dataset is large, you can process batches of training data in a parallel way by running the above command multiple times with different batch_id. These two arguments are simply designed to speed up the data preprocessing for large dataset. If you have small training dataset, you can choose not to specify the value of <kbd>batch_size</kbd> and <kbd>batch_id</kbd>, and then the entire training data will be processed one time.
 
 Note that the training pairs of molecules for *Modof* model is required to differ in terms of only one fragment. The training pairs which differ in multiple fragments will be filtered out by the above command. To get enough training pairs for *Modof* model, it is expected that the molecules in your own training data are very similar. 
 
+Example:
 
+```
+
+```
 
 ## Training
 

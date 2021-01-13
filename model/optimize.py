@@ -5,7 +5,7 @@ from torch.autograd import Variable
 import math, random, sys
 from argparse import ArgumentParser
 from collections import deque
-import pdb
+
 import rdkit
 import rdkit.Chem as Chem
 from rdkit.Chem import Descriptors
@@ -81,8 +81,7 @@ def output_best(best_res, res_file):
         std_imp = math.sqrt(sum([(x[0] - avg_imp)**2 for x in best_res])/len(best_res))
         avg_sim = sum([x[1] for x in best_res])/len(best_res)
         std_sim = math.sqrt(sum([(x[1] - avg_sim)**2 for x in best_res])/len(best_res))
-       
-        pdb.set_trace() 
+        
         s = "num: %d avg(imp): %.2f(%.2f) avg(sim): %.2f(%.2f) avg(atom):%.2f avg(newatom):%.2f \n" % (len(best_res), avg_imp, std_imp, avg_sim, std_sim, sum([x[4] for x in best_res])/len(best_res), sum([x[6] for x in best_res])/len(best_res))
     res_file.write(s)
     res_file.flush()
@@ -98,6 +97,7 @@ parser.add_argument("-d", "--save_dir", dest="save_dir")
 parser.add_argument("-st", "--start", dest="start")
 parser.add_argument("-si", "--size", dest="size")
 
+parser.add_argument("--seed", type=int, default=2021)
 parser.add_argument("-r", "--reselect", type=int, default=1)
 parser.add_argument('--hidden_size', type=int, default=32)
 parser.add_argument('--batch_size', type=int, default=32)
@@ -152,7 +152,7 @@ output = []
 best_smiles = []
 time1 = time.time()
 
-# for each input molecule in data
+# optimize input molecules
 for smiles in data[start:end]:
     best_score1, best_score2, best_imp, best_ori_imp, best_atom_num, best_sim, best_orisim = 0,0,None,0,0,0,0
     last_best_score2, last_best_ori_imp, last_best_orisim, last_best_atom_num = 0,0,0,0 
@@ -162,12 +162,14 @@ for smiles in data[start:end]:
     ori_smiles = smiles
     ori_score = None
     ori_atom = 0
-    # optimize the input molecule for no more than "iternum" times
+    
+    # Optimize the input molecule for multiple iterations
+    # The optimization will stop if the model cannot produce molecules with better properties at one iteration.
+    # The molecules with the best properties among all iterations will be the final output.
     for i in range(opts.iternum):
         if best_imp is not None:
             if best_imp <= 0:
-                # if the best improvement is not greater than 0,
-                # stop optimization
+                # if the property improvement is no more than zero, stop the optimization
                 best_score2 = last_best_score2
                 best_ori_imp = last_best_ori_imp
                 best_orisim = last_best_orisim
@@ -184,7 +186,7 @@ for smiles in data[start:end]:
         outfiles[i].write(ori_smiles+"\n")
         smiles = best_smiles
 
-        # in each iteration, randomly optimize the molecule for "num" times
+        # In each iteration, randomly optimize the molecule for "num" times
         for _ in range(opts.num):
             score1, score2, atom_num, new_smiles, sim, ori_sim, reselect = predict(smiles, opts.lr, vocab, common_atom_vocab, opts.reselect, ori_smiles, i, outfiles[i])
             reselect_num += reselect
@@ -194,7 +196,7 @@ for smiles in data[start:end]:
                 ori_atom = atom_num
                 ori_score = score1
 
-            # save the best optimized molecule
+            # Save the best optimized molecule
             if (best_imp is None or score2-score1 > best_imp) and ori_sim > opts.cutoff:
                 best_imp = score2-score1
                 best_ori_imp = score2 - ori_score

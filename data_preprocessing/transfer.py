@@ -15,32 +15,31 @@ def convert_nx(moltree):
     graph = moltree.mol_tree
     counts_dict = dict()
     for node in graph.nodes:
-        node_wid = graph.nodes[node]['wid']
+        node_wid = graph.nodes[node]['label']
         G.add_node(node)
         G.nodes[node]['num'] = len(G.edges(node))
         G.nodes[node]['label'] = node_wid
-        G.nodes[node]['smile'] = graph.nodes[node]['label']
     
     for node in graph.nodes:
         counts = dict()
         for _,nei in graph.edges(node):
-            nei_wid = graph.nodes[nei]['wid']
+            nei_wid = graph.nodes[nei]['label']
             
             if nei_wid not in counts:
                 counts[nei_wid] = []
             tmp = []
             for _,nei_nei in graph.edges(nei):
                 if nei_nei != node:
-                    nei_nei_wid = graph.nodes[nei_nei]['wid']
+                    nei_nei_wid = graph.nodes[nei_nei]['label']
                     tmp.append(nei_nei_wid)
             counts[nei_wid].append(tmp)   
             
         counts_dict[node] = counts
         G.nodes[node]['counts'] = counts
-        node_wid = graph.nodes[node]['wid']
+        node_wid = graph.nodes[node]['label']
         for _, nei in graph.edges(node):
             if nei < node:
-                nei_wid = graph.nodes[nei]['wid']
+                nei_wid = graph.nodes[nei]['label']
                 G.add_edge(node, nei)
                 G[node][nei]['label1'] = node_wid
                 G[node][nei]['label2'] = nei_wid

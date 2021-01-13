@@ -22,8 +22,8 @@ from pebble import ProcessPool, ProcessExpired
 from sift import sift_molecules
 
 def tensorize_pair(smiles_pair):
-    mol_tree0 = tensorize(smiles_pair[0], assm=False)
-    mol_tree1 = tensorize(smiles_pair[1], assm=True)
+    mol_tree0 = MolTree(smiles_pair[0])
+    mol_tree1 = MolTree(smiles_pair[1])
     path = compute_path(mol_tree0, mol_tree1)
     return (mol_tree0, mol_tree1, path)
         
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     
     # the dataset to be processed should contain molecule pairs
     with open(args.train) as f:
-        alldata = [line.strip("\r\n ").split()[:2] for line in f]
+        alldata = [line.strip("\r\n ").split()[:2] for line in f][:20]
     
     # whether processing the entire dataset or only a batch of the dataset.
     if args.batch_size > 0:
@@ -88,5 +88,5 @@ if __name__ == "__main__":
     
     # select pairs which differ in terms of only one fragment.
     pdata = sift_molecules(pdata)    
-    with open(args.output, 'wb') as f:
-        pickle.dump("%s/%s-%d.pkl" % (path, args.output, args.batch_id), f, pickle.HIGHEST_PROTOCOL)
+    with open("%s/%s-%d.pkl" % (path, args.output, args.batch_id), 'wb') as f:
+        pickle.dump(pdata, f, pickle.HIGHEST_PROTOCOL)
