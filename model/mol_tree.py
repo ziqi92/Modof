@@ -1,3 +1,5 @@
+import os
+import pickle
 import rdkit
 import argparse
 import sascorer
@@ -352,15 +354,18 @@ if __name__ == "__main__":
     #lg.setLevel(rdkit.RDLogger.CRITICAL)
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--train", type=str, default="../data/", help="the path of training data")
-    parser.add_argument("-o", "--out", type=str, default="../data/vocab.txt", help="the path of vocabulary")
+    parser.add_argument("-d", "--train", type=str, default="./data/logp06/", help="the path of training data")
+    parser.add_argument("-o", "--out", type=str, default="./data/vocab.txt", help="the path of vocabulary")
     args = parser.parse_args()
     
     cset = set()
     for file_name in os.listdir(args.train):
+        if not file_name.endswith("pkl"): continue
         with open(os.path.join(args.train, file_name), 'rb') as f:
-            data = pickle.load(f)
-            for d in data: cset.update(set([label for _, label in mol.mol_tree.nodes(data='label')]))
+            pairs_data = pickle.load(f)
+            for molx, moly, path in pairs_data:
+                cset.update(set([label for _, label in molx.mol_tree.nodes(data='label')]))
+                cset.update(set([label for _, label in moly.mol_tree.nodes(data='label')]))
      
     with open(args.out, 'w') as f:
         for word in cset:

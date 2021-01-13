@@ -136,7 +136,7 @@ python ./model/mol_tree.py --train train_path --out vocab_path
 To test a trained model, you can run the file <code>./model/optimize.py</code> with following command:
 
 ```
-python ./model/optimize.py --test test_path --vocab vocab_path --model model_path -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 -st 0 -si 800 --num N -s 0.6
+python ./model/optimize.py --test test_path --vocab vocab_path --model model_path -d <test result path> --hidden_size 64 --latent_size 8 --depthT 3 --depthG 5 --iternum 5 --num N -s 0.6
 ```
 
 Note that the option "hidden_size", "latent_size", "depthT" and "depthG" must be the same with the train model. 
