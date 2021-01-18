@@ -15,7 +15,7 @@ from mol_tree import MolTree
 from molopt import MolOpt
 from vocab import Vocab, common_atom_vocab
 from properties import similarity, penalized_logp
-
+import pdb
 lg = rdkit.RDLogger.logger() 
 lg.setLevel(rdkit.RDLogger.CRITICAL)
 
@@ -31,10 +31,9 @@ def predict(smiles, lr, vocab, avocab, reselect, ori_smiles, iternum, output):
     atomnum = mol.GetNumAtoms()
     tree = get_tree(smiles)
     score1 = penalized_logp(smiles)
-
-    try:
+    try:    
         xbatch = MolTree.tensorize([tree], vocab, avocab, target=False)
-        new_smiles, sim, reselect, score11, score2 = model.test(xbatch, tree, lr=lr, reselect_num=reselect)
+        new_smiles, sim, reselect, score11, score2 = model.test(xbatch, tree, reselect_num=reselect)
     except:
         ori_sim = similarity(smiles, ori_smiles)
         return score1, score1, atomnum, smiles, 1.0, ori_sim, 0
@@ -153,6 +152,7 @@ best_smiles = []
 time1 = time.time()
 
 # optimize input molecules
+ 
 for smiles in data[start:end]:
     best_score1, best_score2, best_imp, best_ori_imp, best_atom_num, best_sim, best_orisim = 0,0,None,0,0,0,0
     last_best_score2, last_best_ori_imp, last_best_orisim, last_best_atom_num = 0,0,0,0 
@@ -220,7 +220,6 @@ for smiles in data[start:end]:
     print("time: %s" % str(time2-time1))
     time1 = time2
     best_res.append( (best_ori_imp, best_orisim, ori_smiles, ori_score, ori_atom, best_smiles, best_atom_num, best_score2) )
-
 
 
 # ========================================== Output iteration results =============================================

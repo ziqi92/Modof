@@ -1,0 +1,630 @@
+CCC[NH+](C1CCC([NH3+])CC1)[C@H]1CCOC1
+iter: 4 sim: 0.58 ori_sim: 0.2917 imp: 0.50 decode molecule CCC[NH+](CC)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.45 ori_sim: 0.2154 imp: 3.70 decode molecule CCC(CC)C1CCC(C)CC1
+iter: 4 sim: 0.48 ori_sim: 0.2471 imp: 1.81 decode molecule CCC[NH+](C1=CC=CC=C1)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.70 ori_sim: 0.4133 imp: 1.63 decode molecule CCC[NH+](C1CCCCC1)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.48 ori_sim: 0.2471 imp: 1.81 decode molecule CCC[NH+](C1=CC=CC=C1)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.56 ori_sim: 0.2838 imp: 0.88 decode molecule CCC[NH+](C(C)C)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.61 ori_sim: 0.7018 imp: -1.21 decode molecule CCC[NH+](C1CCC(C(C)=O)CC1)C1CCOC1
+iter: 4 sim: 0.76 ori_sim: 0.5000 imp: 0.24 decode molecule CCC(CC)C1CCC([NH+](CC(C)C)C2CCOC2)CC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.28 ori_sim: 0.3235 imp: -0.87 decode molecule CCC[NH+](C1=CC=CC=C1)C1CCOC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.38 ori_sim: 0.3860 imp: -2.13 decode molecule CCC[NH+](C(C)C)C1CCOC1
+iter: 4 sim: 0.48 ori_sim: 0.2471 imp: 1.81 decode molecule CCC[NH+](C1=CC=CC=C1)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.58 ori_sim: 0.2917 imp: 0.50 decode molecule CCC[NH+](CC)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.38 ori_sim: 0.3860 imp: -2.13 decode molecule CCC[NH+](C(C)C)C1CCOC1
+iter: 4 sim: 0.56 ori_sim: 0.2838 imp: 0.88 decode molecule CCC[NH+](C(C)C)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.67 ori_sim: 0.4512 imp: 1.22 decode molecule CCC(CC)C1CCC([NH+](CCC2=CC=CC=C2)C2CCOC2)CC1
+iter: 4 sim: 0.58 ori_sim: 0.2917 imp: 0.50 decode molecule CCC[NH+](CC)C1CCC(C(CC)CC)CC1
+iter: 4 sim: 0.46 ori_sim: 0.2360 imp: 2.26 decode molecule CCC[NH+](C1=C(C)C=C(C)C=C1)C1CCC(C(CC)CC)CC1
+CNc1ccccc1C(=O)N1CCN2C(=O)NC[C@H]2C1
+iter: 4 sim: 0.75 ori_sim: 0.5000 imp: 1.14 decode molecule CC1=CC(C)=C(C2=CC(C(C)C)=CC=C2NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5000 imp: -0.08 decode molecule CC(C)C1=CC=C(NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C(C2=CC(N)=CC(N)=C2)=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.75 ori_sim: 0.5354 imp: 0.68 decode molecule CC(C)C1=CC=C(NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C(C2CCCC2)=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.86 ori_sim: 0.5955 imp: 0.06 decode molecule CCC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN2C(=O)NCC2C1
+iter: 4 sim: 0.80 ori_sim: 0.6310 imp: -0.34 decode molecule CCC1=CC=C(NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C(C)=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.80 ori_sim: 0.6310 imp: -0.34 decode molecule CCC1=CC=C(NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C(C)=C1
+iter: 4 sim: 0.70 ori_sim: 0.5000 imp: 0.63 decode molecule CC(C)C1=CC=C(NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C(C2=CC=C(S)C=C2S)=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.75 ori_sim: 0.5000 imp: 1.14 decode molecule CC1=CC(C)=C(C2=CC(C(C)C)=CC=C2NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+iter: 4 sim: 0.75 ori_sim: 0.5000 imp: 1.14 decode molecule CC1=CC(C)=C(C2=CC(C(C)C)=CC=C2NC2=CC=CC=C2C(=O)N2CCN3C(=O)NCC3C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.3684 imp: 1.43 decode molecule CC1=CC(C(C)C)=CC=C1NC1=CC=CC=C1C(=O)N1CCN(C)CC1
+CC(C)(C)CS(=O)(=O)N1Cc2nc[nH]c2C[C@H]1C(=O)[O-]
+iter: 4 sim: 0.75 ori_sim: 0.4848 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC=C(OC(=O)C3CC4=C(CN3S(=O)(=O)CC(C)(C)C)N=CN4)C=C2)C=C1
+iter: 4 sim: 0.84 ori_sim: 0.5854 imp: 0.16 decode molecule CCC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)CC(C)(C)C)N=CN3)C=C1
+iter: 4 sim: 0.75 ori_sim: 0.4848 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC=C(OC(=O)C3CC4=C(CN3S(=O)(=O)CC(C)(C)C)N=CN4)C=C2)C=C1
+iter: 4 sim: 0.63 ori_sim: 0.3564 imp: 0.74 decode molecule CC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)C2=CC=C(C)C=C2C)N=CN3)C=C1
+iter: 4 sim: 0.75 ori_sim: 0.4848 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC=C(OC(=O)C3CC4=C(CN3S(=O)(=O)CC(C)(C)C)N=CN4)C=C2)C=C1
+iter: 4 sim: 0.84 ori_sim: 0.5854 imp: 0.16 decode molecule CCC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)CC(C)(C)C)N=CN3)C=C1
+iter: 4 sim: 0.81 ori_sim: 0.4634 imp: -0.53 decode molecule CCS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(C)C=C1)NC=N2
+iter: 4 sim: 0.82 ori_sim: 0.5854 imp: -0.19 decode molecule CC(C)(C)CS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(CS)C=C1)NC=N2
+iter: 4 sim: 0.82 ori_sim: 0.5854 imp: -0.19 decode molecule CC(C)(C)CS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(CS)C=C1)NC=N2
+iter: 4 sim: 0.84 ori_sim: 0.5854 imp: 0.16 decode molecule CCC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)CC(C)(C)C)N=CN3)C=C1
+iter: 4 sim: 0.75 ori_sim: 0.4848 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC=C(OC(=O)C3CC4=C(CN3S(=O)(=O)CC(C)(C)C)N=CN4)C=C2)C=C1
+iter: 4 sim: 0.73 ori_sim: 0.5217 imp: -0.66 decode molecule CC(C)(C)CS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(C3CSC=N3)C=C1)NC=N2
+iter: 4 sim: 0.80 ori_sim: 0.5581 imp: 0.60 decode molecule CC(C)(C)CS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(C(C)(C)C)C=C1)NC=N2
+iter: 4 sim: 0.70 ori_sim: 0.3864 imp: 1.09 decode molecule CC1=CC=C(OC(=O)C2CC(C)=C(C)CN2S(=O)(=O)CC(C)(C)C)C=C1
+iter: 4 sim: 0.62 ori_sim: 0.3500 imp: 0.66 decode molecule CC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)C2=CC=C(C)C=C2)N=CN3)C=C1
+iter: 4 sim: 0.80 ori_sim: 0.5581 imp: 0.60 decode molecule CC(C)(C)CS(=O)(=O)N1CC2=C(CC1C(=O)OC1=CC=C(C(C)(C)C)C=C1)NC=N2
+iter: 4 sim: 0.70 ori_sim: 0.3864 imp: 1.09 decode molecule CC1=CC=C(OC(=O)C2CC(C)=C(C)CN2S(=O)(=O)CC(C)(C)C)C=C1
+iter: 4 sim: 0.82 ori_sim: 0.5714 imp: 0.52 decode molecule CC(C)C1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)CC(C)(C)C)N=CN3)C=C1
+iter: 4 sim: 0.84 ori_sim: 0.5854 imp: 0.16 decode molecule CCC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)CC(C)(C)C)N=CN3)C=C1
+iter: 4 sim: 0.62 ori_sim: 0.3500 imp: 0.66 decode molecule CC1=CC=C(OC(=O)C2CC3=C(CN2S(=O)(=O)C2=CC=C(C)C=C2)N=CN3)C=C1
+O=C1N(C[NH+]2CCN(c3ccccc3)CC2)c2ccccc2C12O[C@@H]1CCCC[C@H]1O2
+iter: 4 sim: 0.77 ori_sim: 0.5793 imp: 1.15 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.77 ori_sim: 0.5793 imp: 1.15 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.80 ori_sim: 0.6000 imp: -0.51 decode molecule CCC1=CC(C2N=CSC2C)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.77 ori_sim: 0.5793 imp: 1.15 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.77 ori_sim: 0.5793 imp: 1.15 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.50 ori_sim: 0.6436 imp: -2.44 decode molecule O=C1N(C[NH+]2CCCCC2)C2=CC=CC=C2C12OC1CCCCC1O2
+iter: 4 sim: 0.33 ori_sim: 0.1260 imp: 3.30 decode molecule CCC1=CC=C(C2=CC=C(NC)C=C2)C(CC)=C1
+iter: 4 sim: 0.50 ori_sim: 0.6436 imp: -2.44 decode molecule O=C1N(C[NH+]2CCCCC2)C2=CC=CC=C2C12OC1CCCCC1O2
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.85 ori_sim: 0.6364 imp: 0.44 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.52 ori_sim: 0.6633 imp: -2.78 decode molecule O=C1N(C[NH+]2CCCC2)C2=CC=CC=C2C12OC1CCCCC1O2
+iter: 4 sim: 0.77 ori_sim: 0.5793 imp: 1.15 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC=C(N2CC[NH+](CN3C(=O)C4(OC5CCCCC5O4)C4=CC=CC=C43)CC2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+C[C@H](O)CC#CC[NH+]1CCC[C@H](c2cccnc2)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.72 ori_sim: 0.4752 imp: 1.00 decode molecule ClCC1=CC(C(CC#CC[NH+]2CCCC(C3=CC=CN=C3)C2)C2=CC=CC=C2)=CC=C1Cl
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.72 ori_sim: 0.4752 imp: 1.00 decode molecule ClCC1=CC(C(CC#CC[NH+]2CCCC(C3=CC=CN=C3)C2)C2=CC=CC=C2)=CC=C1Cl
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.64 ori_sim: 0.3953 imp: -1.34 decode molecule CC(CC#CC[NH+]1CCCC(CO)C1)C1=CC=C(Cl)C(CCl)=C1
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5000 imp: 1.37 decode molecule CC1=CC(C)=C(C2=CC(C(C)CC#CC[NH+]3CCCC(C4=CC=CN=C4)C3)=CC=C2Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+O=C([O-])[C@H]1C=C[C@H](NS(=O)(=O)c2ccc3c(c2)CCO3)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.71 ori_sim: 0.4948 imp: 0.77 decode molecule CC1=C(C(C)CCCC2C=CC(NS(=O)(=O)C3=CC=C4OCCC4=C3)C2)C=CC=C1
+iter: 4 sim: 0.65 ori_sim: 0.5333 imp: 0.40 decode molecule O=S(=O)(NC1C=CC(CCCC2=CC=CC=C2)C1)C1=CC=C2OCCC2=C1
+iter: 4 sim: 0.70 ori_sim: 0.4848 imp: 0.92 decode molecule CC1=CC(C)=C(C(C)CCCC2C=CC(NS(=O)(=O)C3=CC=C4OCCC4=C3)C2)C=C1
+iter: 4 sim: 0.60 ori_sim: 0.3118 imp: 0.04 decode molecule CC1=CC(S(=O)(=O)NC2C=CC(CCCC(C)C)C2)=C(O)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5053 imp: 0.67 decode molecule CC(CCCC1C=CC(NS(=O)(=O)C2=CC=C3OCCC3=C2)C1)C1=CC=CC=C1
+iter: 4 sim: 0.65 ori_sim: 0.3483 imp: 0.69 decode molecule CC(C)CCCC1C=CC(NS(=O)(=O)C2=CC(Cl)=CC=C2)C1
+iter: 4 sim: 0.68 ori_sim: 0.3708 imp: 0.67 decode molecule CC1=CC=C(S(=O)(=O)NC2C=CC(CCCC(C)C)C2)C=C1C
+iter: 4 sim: 0.63 ori_sim: 0.3333 imp: 0.77 decode molecule CC(C)CCCC1C=CC(NS(=O)(=O)C2=CC=C(Cl)C=C2)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.63 ori_sim: 0.3333 imp: 0.78 decode molecule CC(C)CCCC1C=CC(NS(=O)(=O)C2=CC=C(Br)C=C2)C1
+iter: 4 sim: 0.68 ori_sim: 0.4848 imp: -0.32 decode molecule CC(CCCC1C=CC(NS(=O)(=O)C2=CC=C3OCCC3=C2)C1)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.63 ori_sim: 0.3333 imp: 0.77 decode molecule CC(C)CCCC1C=CC(NS(=O)(=O)C2=CC=C(Cl)C=C2)C1
+iter: 4 sim: 0.58 ori_sim: 0.2979 imp: -0.53 decode molecule CC(C)CCCC1C=CC(NS(=O)(=O)C2=C(O)C(O)=CC=C2)C1
+iter: 4 sim: 0.71 ori_sim: 0.4948 imp: 0.77 decode molecule CC1=C(C(C)CCCC2C=CC(NS(=O)(=O)C3=CC=C4OCCC4=C3)C2)C=CC=C1
+iter: 4 sim: 0.73 ori_sim: 0.5217 imp: -1.17 decode molecule CC(CCCC1C=CC(NS(=O)(=O)C2=CC=C3OCCC3=C2)C1)C1CSC=N1
+iter: 4 sim: 0.71 ori_sim: 0.5053 imp: 0.67 decode molecule CC(CCCC1C=CC(NS(=O)(=O)C2=CC=C3OCCC3=C2)C1)C1=CC=CC=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.60 ori_sim: 0.3118 imp: 0.61 decode molecule CC1=CC=C(S(=O)(=O)NC2C=CC(CCCC(C)C)C2)C(C)=C1
+[NH3+][C@@H](CO)c1cc(C(F)(F)F)cc([N+](=O)[O-])c1[O-]
+iter: 4 sim: 0.58 ori_sim: 0.3571 imp: 1.36 decode molecule CCC(CC)C1=C(C)C(C(F)(F)F)=CC([N+](=O)[O-])=C1
+iter: 4 sim: 0.48 ori_sim: 0.2857 imp: 1.16 decode molecule CCC(CC)C1=CC(C2=C(C)C=C(C)C=C2)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.48 ori_sim: 0.2857 imp: 0.53 decode molecule CCC(CC)C1=CC(C2=CC(N)=C(C)C=C2)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.58 ori_sim: 0.3571 imp: 0.80 decode molecule CCC(CC)C1=C(N)C(C(F)(F)F)=CC([N+](=O)[O-])=C1
+iter: 4 sim: 0.62 ori_sim: 0.4000 imp: -1.14 decode molecule CCC(CC)C1=CC(CO)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.63 ori_sim: 0.5000 imp: 0.42 decode molecule CCC(CC1=CC=CC=C1)C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.63 ori_sim: 0.5000 imp: 0.42 decode molecule CCC(CC1=CC=CC=C1)C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.55 ori_sim: 0.4933 imp: 0.55 decode molecule CCC(C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-])C1=C(C)C=C(C)C=C1
+iter: 4 sim: 0.55 ori_sim: 0.4933 imp: 0.55 decode molecule CCC(C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-])C1=C(C)C=C(C)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.63 ori_sim: 0.5000 imp: 0.42 decode molecule CCC(CC1=CC=CC=C1)C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.63 ori_sim: 0.5000 imp: 0.42 decode molecule CCC(CC1=CC=CC=C1)C1=CC(C(F)(F)F)=CC([N+](=O)[O-])=C1[O-]
+iter: 4 sim: 0.49 ori_sim: 0.2941 imp: 1.88 decode molecule CCC(CC)C1=CC(C(F)(F)F)=CC(C)=C1
+iter: 4 sim: 0.49 ori_sim: 0.3134 imp: 1.31 decode molecule CCC(CC)C1=CC(C(F)(F)F)=CC(O)=C1
+iter: 4 sim: 0.58 ori_sim: 0.3571 imp: 1.36 decode molecule CCC(CC)C1=C(C)C(C(F)(F)F)=CC([N+](=O)[O-])=C1
+C[C@H](CCO)[NH2+][C@H]1CCc2c(Br)cccc21
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.49 ori_sim: 0.4865 imp: -0.13 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.58 ori_sim: 0.4557 imp: -0.21 decode molecule CCC(C)C(CC1=CC(N)=CC(N)=C1)[NH2+]C1CCC2=C(Br)C=CC=C21
+iter: 4 sim: 0.59 ori_sim: 0.4390 imp: 0.18 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.65 ori_sim: 0.4800 imp: -0.91 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1CSC=N1
+iter: 4 sim: 0.65 ori_sim: 0.4800 imp: -0.91 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1CSC=N1
+iter: 4 sim: 0.65 ori_sim: 0.4800 imp: -0.91 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1CSC=N1
+iter: 4 sim: 0.49 ori_sim: 0.4865 imp: -0.13 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.49 ori_sim: 0.4865 imp: -0.13 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.51 ori_sim: 0.5000 imp: 0.38 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C1=CC(N)=CC=C1
+iter: 4 sim: 0.59 ori_sim: 0.4390 imp: 0.18 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC(N)=CC(N)=C1
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.63 ori_sim: 0.4615 imp: 1.20 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)C1=CC=CC=C1
+iter: 4 sim: 0.61 ori_sim: 0.4800 imp: 0.82 decode molecule CCC(C)C(CC1=CC=CC=C1)[NH2+]C1CCC2=C(Br)C=CC=C21
+iter: 4 sim: 0.79 ori_sim: 0.5538 imp: 0.45 decode molecule CCCC([NH2+]C1CCC2=C(Br)C=CC=C21)C(CC)CC
+O=C(NCC[NH+]1CCN(C(=O)c2ccccc2[N+](=O)[O-])CC1)[C@H]1CC(=O)N(c2ccccc2)C1
+iter: 4 sim: 0.87 ori_sim: 0.5329 imp: 1.18 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC=C(C4=CC=C(N5CC(C(=O)NCC[NH+]6CCN(C(=O)C7=CC=CC=C7[N+](=O)[O-])CC6)CC5=O)C=C4)C(C)=C3)C(C)=C2)C=C1
+iter: 4 sim: 0.89 ori_sim: 0.5779 imp: 0.54 decode molecule CC1=CC(C2=CC=C(C(C)(C)C)C=C2C)=CC=C1C1=CC=C(N2CC(C(=O)NCC[NH+]3CCN(C(=O)C4=CC=CC=C4[N+](=O)[O-])CC3)CC2=O)C=C1
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.87 ori_sim: 0.5329 imp: 1.18 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC=C(C4=CC=C(N5CC(C(=O)NCC[NH+]6CCN(C(=O)C7=CC=CC=C7[N+](=O)[O-])CC6)CC5=O)C=C4)C(C)=C3)C(C)=C2)C=C1
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.86 ori_sim: 0.5329 imp: 1.18 decode molecule CC1=CC=C(C2=CC=C(C3=CC=C(N4CC(C(=O)NCC[NH+]5CCN(C(=O)C6=CC=CC=C6[N+](=O)[O-])CC5)CC4=O)C=C3)C(C)=C2)C(C2=C(C)C=C(C)C=C2)=C1
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.91 ori_sim: 0.5933 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C3=CC=C(N4CC(C(=O)NCC[NH+]5CCN(C(=O)C6=CC=CC=C6[N+](=O)[O-])CC5)CC4=O)C=C3)C(C)=C2)C(C)=C1
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.91 ori_sim: 0.5933 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C3=CC=C(N4CC(C(=O)NCC[NH+]5CCN(C(=O)C6=CC=CC=C6[N+](=O)[O-])CC5)CC4=O)C=C3)C(C)=C2)C(C)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.87 ori_sim: 0.5329 imp: 1.18 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC=C(C4=CC=C(N5CC(C(=O)NCC[NH+]6CCN(C(=O)C7=CC=CC=C7[N+](=O)[O-])CC6)CC5=O)C=C4)C(C)=C3)C(C)=C2)C=C1
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.20 ori_sim: 0.2692 imp: 0.17 decode molecule CNC(=O)C1=CC=CC=C1[N+](=O)[O-]
+iter: 4 sim: 0.86 ori_sim: 0.5329 imp: 1.18 decode molecule CC1=CC=C(C2=CC=C(C3=CC=C(N4CC(C(=O)NCC[NH+]5CCN(C(=O)C6=CC=CC=C6[N+](=O)[O-])CC5)CC4=O)C=C3)C(C)=C2)C(C2=C(C)C=C(C)C=C2)=C1
+CC(C)CNC(=O)CNC(=O)[C@H]1CCC[NH+]1Cc1ccc(F)cc1
+iter: 4 sim: 0.87 ori_sim: 0.5146 imp: 0.36 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(Cl)C=C2)C=C1C(C)C
+iter: 4 sim: 0.78 ori_sim: 0.4717 imp: 0.35 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=CC(Br)=C2)C=C1C(C)C
+iter: 4 sim: 0.51 ori_sim: 0.2500 imp: 2.71 decode molecule CC1=C(N)C=C(C(=O)NCC(=O)NC2=CC=C(C(C)C)C(C(C)C)=C2)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.78 ori_sim: 0.4717 imp: 0.32 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC(Cl)=CC=C2)C=C1C(C)C
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.71 ori_sim: 0.5268 imp: 0.87 decode molecule CC1=CC(C)=C(C2=CC=C(NC(=O)CNC(=O)C3CCC[NH+]3CC3=CC=C(F)C=C3)C=C2C(C)C)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.81 ori_sim: 0.6383 imp: -0.36 decode molecule CCC1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.87 ori_sim: 0.5146 imp: 0.36 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(Cl)C=C2)C=C1C(C)C
+iter: 4 sim: 0.20 ori_sim: 0.2597 imp: -1.58 decode molecule [O-][NH+]([O-])CC1=CC=C(F)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5221 imp: 0.52 decode molecule CC(C)C1=CC=C(NC(=O)CNC(=O)C2CCC[NH+]2CC2=CC=C(F)C=C2)C=C1C(C)C1=CC=CC=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+O=C(c1cccc(F)c1)N1CCCC[C@@H]1c1nc2c(c(=O)[nH]1)C[NH+](Cc1cccnc1)CC2
+iter: 4 sim: 0.90 ori_sim: 0.5957 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(CC)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5000 imp: -0.33 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=C(O)C=CC=C3)=N4)C(C)=C2)C(CC)=C1
+iter: 4 sim: 0.44 ori_sim: 0.5333 imp: -0.22 decode molecule CC1=CN=C(C2CCCCN2C(=O)C2=CC=CC(F)=C2)NC1=O
+iter: 4 sim: 0.90 ori_sim: 0.5957 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(CC)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.90 ori_sim: 0.5957 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(CC)=C2)C(CC)=C1
+iter: 4 sim: 0.81 ori_sim: 0.5497 imp: 0.38 decode molecule CCC1=CC(C2CCC(C)C2)=CC=C1C1=CC=C(C[NH+]2CCC3=C(C2)C(=O)NC(C2CCCCN2C(=O)C2=CC=CC(F)=C2)=N3)C(C)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5000 imp: 0.17 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=C(C)C=C3)=N4)C(C)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5667 imp: -0.39 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3CSC=N3)=C2)C(CC)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5000 imp: 0.17 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=C(C)C=C3)=N4)C(C)=C2)C(CC)=C1
+iter: 4 sim: 0.90 ori_sim: 0.5957 imp: 0.12 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(CC)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5316 imp: 1.24 decode molecule CCC1=CC=C(C2=CC=C(C[NH+]3CCC4=C(C3)C(=O)NC(C3CCCCN3C(=O)C3=CC=CC(F)=C3)=N4)C(C3=C(C)C=C(C)C=C3)=C2)C(CC)=C1
+CC(C)[NH+]1CCC(N2CC[NH+](Cc3c(F)ccc(F)c3F)C[C@@H]2CCO)CC1
+iter: 4 sim: 0.88 ori_sim: 0.6126 imp: 0.21 decode molecule CCC(C(C)C)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.76 ori_sim: 0.5194 imp: 1.46 decode molecule CC1=CC(C)=C(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C=C1
+iter: 4 sim: 0.52 ori_sim: 0.3333 imp: 1.30 decode molecule NC1=CC(N)=CC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)=C1
+iter: 4 sim: 0.88 ori_sim: 0.5877 imp: 0.61 decode molecule CC(C)C(C(C)C)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.03 ori_sim: 0.0370 imp: 2.84 decode molecule CCC
+iter: 4 sim: 0.74 ori_sim: 0.5194 imp: 0.27 decode molecule CC(C)C(C1=CC(N)=CC(N)=C1)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.76 ori_sim: 0.5194 imp: 1.46 decode molecule CC1=CC(C)=C(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C=C1
+iter: 4 sim: 0.63 ori_sim: 0.4237 imp: -1.66 decode molecule CC1(N)C[NH2+]CCC1N1CC[NH+](CC2=C(F)C=CC(F)=C2F)CC1CC1=CC=CC=C1Cl
+iter: 4 sim: 0.75 ori_sim: 0.5276 imp: 0.69 decode molecule CC(C)C(C1=CC(N)=CC=C1)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.76 ori_sim: 0.5194 imp: 0.86 decode molecule CC1=C(N)C=C(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C=C1
+iter: 4 sim: 0.74 ori_sim: 0.5312 imp: 0.39 decode molecule CC(C)C(C1=CC(N)=C(O)C=C1)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.78 ori_sim: 0.5317 imp: -0.10 decode molecule CC1=NC(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C(C)S1
+iter: 4 sim: 0.76 ori_sim: 0.5194 imp: 1.46 decode molecule CC1=CC(C)=C(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C=C1
+iter: 4 sim: 0.74 ori_sim: 0.5194 imp: 0.27 decode molecule CC(C)C(C1=CC(N)=CC(N)=C1)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.63 ori_sim: 0.4167 imp: 0.25 decode molecule CC(N)N1CC[NH+](CC2=C(F)C=CC(F)=C2F)CC1CC1=CC=CC=C1Cl
+iter: 4 sim: 0.88 ori_sim: 0.5877 imp: 0.61 decode molecule CC(C)C(C(C)C)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.75 ori_sim: 0.5397 imp: 0.82 decode molecule CC(C)C(C1=CC=C(O)C=C1)[NH+]1CCC(N2CC[NH+](CC3=C(F)C=CC(F)=C3F)CC2CC2=CC=CC=C2Cl)CC1
+iter: 4 sim: 0.76 ori_sim: 0.5312 imp: 0.96 decode molecule CC1=C(O)C=C(C(C(C)C)[NH+]2CCC(N3CC[NH+](CC4=C(F)C=CC(F)=C4F)CC3CC3=CC=CC=C3Cl)CC2)C=C1
+Cc1ccn2c(=O)c(C(=O)Nc3n[n-]c(C(F)(F)F)n3)cnc2c1
+iter: 4 sim: 0.81 ori_sim: 0.6289 imp: -0.45 decode molecule CCC1=CC=C(C2=CC3=NC=C(C(=O)NC4=N[N-]C(C(F)(F)F)=N4)C(=O)N3C=C2)C(CC)=C1
+iter: 4 sim: 0.62 ori_sim: 0.3223 imp: 1.17 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=CC(N)=CC(N)=C3)C(=O)N2C=C1
+iter: 4 sim: 0.89 ori_sim: 0.5865 imp: 0.19 decode molecule CCC1=CC(C(C)(C)CC)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.62 ori_sim: 0.3223 imp: 1.48 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=CC=C(O)C(O)=C3)C(=O)N2C=C1
+iter: 4 sim: 0.81 ori_sim: 0.6162 imp: -0.09 decode molecule CCC1=CC(C(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.62 ori_sim: 0.3223 imp: 1.17 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=CC(N)=CC(N)=C3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.63 ori_sim: 0.3333 imp: 2.16 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=CC=CC=C3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.79 ori_sim: 0.6289 imp: -1.25 decode molecule CCC1=CC(CO)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.73 ori_sim: 0.5636 imp: -1.14 decode molecule CCC1=CC(C2N=C(C)SC2C)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.72 ori_sim: 0.5701 imp: 0.27 decode molecule CCC1=CC(C2CCCC2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.78 ori_sim: 0.4414 imp: 0.13 decode molecule CCC1=CC(C(C)(C)C)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(C)C)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5766 imp: 0.77 decode molecule CCC1=CC(C2=C(C)C=C(C)C=C2)=CC=C1C1=CC2=NC=C(C(=O)NC3=N[N-]C(C(F)(F)F)=N3)C(=O)N2C=C1
+O[C@@]1(C[NH2+]C2CCN(C3CCCCC3)CC2)CCOC1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.65 ori_sim: 0.4494 imp: -0.38 decode molecule NC(C[NH2+]C1CCN(C2CCCCC2)CC1)OC1=CC=C(O)C=C1
+iter: 4 sim: 0.86 ori_sim: 0.5977 imp: 0.51 decode molecule CC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5977 imp: 0.45 decode molecule CC1=CC(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)=CC=C1
+iter: 4 sim: 0.65 ori_sim: 0.4494 imp: -0.38 decode molecule NC(C[NH2+]C1CCN(C2CCCCC2)CC1)OC1=CC=C(O)C=C1
+iter: 4 sim: 0.39 ori_sim: 0.1364 imp: -1.14 decode molecule NC1=CC(N)=CC([NH2+]CC2(OC3=CC=C(O)C=C3)CCOC2)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.86 ori_sim: 0.5977 imp: 0.51 decode molecule CC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5977 imp: 0.66 decode molecule ClC1=CC=CC(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5778 imp: 0.35 decode molecule COC1=CC=C(OC2(C[NH2+]C3CCN(C4CCCCC4)CC3)CCOC2)C=C1
+iter: 4 sim: 0.58 ori_sim: 0.3000 imp: -2.38 decode molecule NC1=CC=C(N2CCC([NH2+]CC3(OC4=CC=C(O)C=C4)CCOC3)CC2)C(N)C1
+COc1ccc2[nH]cc([C@H](C(=O)[O-])[NH+]3CCN(Cc4cccc5ccccc45)CC3)c2c1
+iter: 4 sim: 0.85 ori_sim: 0.5342 imp: 1.25 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C4=C(C)C=C(C)C=C4)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.85 ori_sim: 0.5342 imp: 1.25 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C4=C(C)C=C(C)C=C4)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.78 ori_sim: 0.5612 imp: 0.99 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4=CC=CC=C4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 0.78 ori_sim: 0.5612 imp: 0.99 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4=CC=CC=C4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 0.78 ori_sim: 0.5612 imp: 0.99 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4=CC=CC=C4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 0.85 ori_sim: 0.5342 imp: 1.25 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C4=C(C)C=C(C)C=C4)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.89 ori_sim: 0.6047 imp: 0.13 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(CC)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 1.00 ori_sim: 0.6190 imp: 0.00 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.80 ori_sim: 0.5735 imp: 0.52 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4CCCC4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 0.57 ori_sim: 0.3571 imp: -1.18 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C)C=C3C)[NH+]3CCCCC3)C2=C1
+iter: 4 sim: 0.78 ori_sim: 0.5612 imp: 0.99 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4=CC=CC=C4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 0.81 ori_sim: 0.5455 imp: -0.25 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C4N=C(C)SC4C)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.89 ori_sim: 0.6047 imp: 0.13 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(CC)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.57 ori_sim: 0.3571 imp: -1.18 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C)C=C3C)[NH+]3CCCCC3)C2=C1
+iter: 4 sim: 0.88 ori_sim: 0.6047 imp: -0.66 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(CO)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.78 ori_sim: 0.5612 imp: 0.99 decode molecule CC1=CC=C(C(C2=CNC3=CC=C(OC4=CC=CC=C4)C=C32)[NH+]2CCN(CC3=CC=CC4=CC=CC=C43)CC2)C(C)=C1
+iter: 4 sim: 1.00 ori_sim: 0.6190 imp: 0.00 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 1.00 ori_sim: 0.6190 imp: 0.00 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+iter: 4 sim: 0.88 ori_sim: 0.5954 imp: 0.48 decode molecule CCOC1=CC=C2NC=C(C(C3=CC=C(C(C)C)C=C3C)[NH+]3CCN(CC4=CC=CC5=CC=CC=C54)CC3)C2=C1
+CCO[C@@H]1C[C@@H]([NH+](C)CCn2c(=O)oc3cccnc32)C12CCCC2
+iter: 4 sim: 0.77 ori_sim: 0.4545 imp: 1.08 decode molecule CC1=CC=C(OC2CC([NH+](CCN3C(=O)OC4=CC=CN=C43)C3=CC=C(C(C)C)C=C3SC(C)C)C23CCCC3)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.90 ori_sim: 0.5929 imp: 0.08 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SC(C)CC)C12CCCC2
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.90 ori_sim: 0.5929 imp: 0.08 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SC(C)CC)C12CCCC2
+iter: 4 sim: 0.79 ori_sim: 0.4846 imp: 1.00 decode molecule CC(C)SC1=CC(C(C)C)=CC=C1[NH+](CCN1C(=O)OC2=CC=CN=C21)C1CC(OCC2=CC=CC=C2)C12CCCC2
+iter: 4 sim: 0.68 ori_sim: 0.4103 imp: -0.42 decode molecule CCOC1CC([NH+](CCN2CCOC2=O)C2=CC=C(C(C)C)C=C2SC(C)C)C12CCCC2
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.65 ori_sim: 0.3514 imp: 0.12 decode molecule CC[NH+](CCN1C(=O)OC2=CC=CN=C21)C1=CC=C(C(C)C)C=C1SC(C)C
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.77 ori_sim: 0.4615 imp: 0.88 decode molecule CC(C)SC1=CC(C(C)C)=CC=C1[NH+](CCN1C(=O)OC2=CC=CN=C21)C1CC(OC2=CC=CC=C2)C12CCCC2
+iter: 4 sim: 0.90 ori_sim: 0.5929 imp: 0.08 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SC(C)CC)C12CCCC2
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.86 ori_sim: 0.6204 imp: -0.24 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SCC)C12CCCC2
+iter: 4 sim: 0.90 ori_sim: 0.5929 imp: 0.08 decode molecule CCOC1CC([NH+](CCN2C(=O)OC3=CC=CN=C32)C2=CC=C(C(C)C)C=C2SC(C)CC)C12CCCC2
+O=C1NC(=S)NC(=O)C1=CNc1ccc([N+](=O)[O-])cc1O
+iter: 4 sim: 0.67 ori_sim: 0.6750 imp: -1.18 decode molecule O=C1NC(=S)NC(=O)C1=CNC1=CC=C([N+](=O)[O-])C=C1C1=C(O)C(O)=CC=C1
+iter: 4 sim: 0.73 ori_sim: 0.6145 imp: -0.11 decode molecule CC1=CC=C(C2=CC([N+](=O)[O-])=CC=C2NC=C2C(=O)NC(=S)NC2=O)C=C1C
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.81 ori_sim: 0.6296 imp: -0.06 decode molecule O=C1NC(=S)NC(=O)C1=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC(Cl)=CC=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.73 ori_sim: 0.6145 imp: -0.11 decode molecule CC1=CC=C(C2=CC([N+](=O)[O-])=CC=C2NC=C2C(=O)NC(=S)NC2=O)C=C1C
+iter: 4 sim: 0.58 ori_sim: 0.2989 imp: 1.78 decode molecule CC=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC=C(Cl)C=C1
+iter: 4 sim: 0.85 ori_sim: 0.6296 imp: -0.22 decode molecule CC1=CC=C(C2=CC([N+](=O)[O-])=CC=C2NC=C2C(=O)NC(=S)NC2=O)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.56 ori_sim: 0.2921 imp: 1.18 decode molecule CC(N)=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC=C(Cl)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.85 ori_sim: 0.6296 imp: -0.36 decode molecule O=C1NC(=S)NC(=O)C1=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC=C(F)C=C1
+iter: 4 sim: 0.81 ori_sim: 0.6296 imp: -0.06 decode molecule O=C1NC(=S)NC(=O)C1=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC(Cl)=CC=C1
+iter: 4 sim: 0.85 ori_sim: 0.6296 imp: -0.22 decode molecule CC1=CC=C(C2=CC([N+](=O)[O-])=CC=C2NC=C2C(=O)NC(=S)NC2=O)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.6296 imp: -0.63 decode molecule O=C1NC(=S)NC(=O)C1=CNC1=CC=C([N+](=O)[O-])C=C1C1=CC=CC=C1S
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+CC[NH+](CC)C[C@@H]1CCN(C(=O)Cc2cc3ccccc3[nH]c2=O)C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.80 ori_sim: 0.5000 imp: 1.17 decode molecule CC1=CC(C)=C(C2=CC=C(CC3CCN(C(=O)CC4=CC5=CC=CC=C5NC4=O)C3)C(C)=C2)C=C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5876 imp: -0.23 decode molecule CC1=CC(CS)=CC=C1CC1CCN(C(=O)CC2=CC3=CC=CC=C3NC2=O)C1
+iter: 4 sim: 0.80 ori_sim: 0.5000 imp: 1.17 decode molecule CC1=CC(C)=C(C2=CC=C(CC3CCN(C(=O)CC4=CC5=CC=CC=C5NC4=O)C3)C(C)=C2)C=C1
+iter: 4 sim: 0.85 ori_sim: 0.6211 imp: 0.10 decode molecule CCC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.76 ori_sim: 0.5000 imp: 1.13 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C2=C(C)C=C(C)C=C2)=C1
+iter: 4 sim: 0.80 ori_sim: 0.5000 imp: 1.17 decode molecule CC1=CC(C)=C(C2=CC=C(CC3CCN(C(=O)CC4=CC5=CC=CC=C5NC4=O)C3)C(C)=C2)C=C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.85 ori_sim: 0.6211 imp: 0.10 decode molecule CCC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.85 ori_sim: 0.6211 imp: 0.10 decode molecule CCC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.75 ori_sim: 0.5185 imp: -0.77 decode molecule CC1=CC(C2CSC=N2)=CC=C1CC1CCN(C(=O)CC2=CC3=CC=CC=C3NC2=O)C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.83 ori_sim: 0.5876 imp: -0.23 decode molecule CC1=CC(CS)=CC=C1CC1CCN(C(=O)CC2=CC3=CC=CC=C3NC2=O)C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 1.00 ori_sim: 0.6064 imp: 0.00 decode molecule CC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.85 ori_sim: 0.6211 imp: 0.10 decode molecule CCC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+iter: 4 sim: 0.75 ori_sim: 0.5185 imp: -0.77 decode molecule CC1=CC(C2CSC=N2)=CC=C1CC1CCN(C(=O)CC2=CC3=CC=CC=C3NC2=O)C1
+iter: 4 sim: 0.85 ori_sim: 0.6211 imp: 0.10 decode molecule CCC1=CC=C(CC2CCN(C(=O)CC3=CC4=CC=CC=C4NC3=O)C2)C(C)=C1
+Cc1c(Cl)ccc2c1NC(=O)[C@@]21[C@@H]2C(=O)N(c3ccc(F)cc3)C(=O)[C@@H]2[C@@H]2CCC[NH+]21
+iter: 4 sim: 0.87 ori_sim: 0.5253 imp: 1.25 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC(C(C)(C)C)=CC=C3C3=C(Cl)C=CC4=C3NC(=O)C43C4C(=O)N(C5=CC=C(F)C=C5)C(=O)C4C4CCC[NH+]43)C(C)=C2)C=C1
+iter: 4 sim: 0.83 ori_sim: 0.5425 imp: -0.97 decode molecule CC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C2N=CSC2N)=C1
+iter: 4 sim: 0.90 ori_sim: 0.5887 imp: -0.10 decode molecule CC1=CC(CS)=CC=C1C1=CC(C(C)(C)C)=CC=C1C1=C(Cl)C=CC2=C1NC(=O)C21C2C(=O)N(C3=CC=C(F)C=C3)C(=O)C2C2CCC[NH+]21
+iter: 4 sim: 0.91 ori_sim: 0.5347 imp: 0.13 decode molecule CC1=CC=C(N2C(=O)C3C4CCC[NH+]4C4(C(=O)NC5=C4C=CC(Cl)=C5C4=CC=C(C(C)(C)C)C=C4C4=CC=C(C)C=C4C)C3C2=O)C=C1
+iter: 4 sim: 0.69 ori_sim: 0.3500 imp: 0.52 decode molecule CC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32[NH2+]C(C)C3(C)C(=O)N(C4=CC=C(F)C=C4)C(=O)C23)C(C)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5188 imp: 1.39 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC(C(C)(C)C)=CC=C3C3=C(Cl)C=CC4=C3NC(=O)C43C4C(=O)N(C5=CC=C(F)C=C5)C(=O)C4C4CCC[NH+]43)C(C)=C2)C(C)=C1
+iter: 4 sim: 0.91 ori_sim: 0.5347 imp: 0.13 decode molecule CC1=CC=C(N2C(=O)C3C4CCC[NH+]4C4(C(=O)NC5=C4C=CC(Cl)=C5C4=CC=C(C(C)(C)C)C=C4C4=CC=C(C)C=C4C)C3C2=O)C=C1
+iter: 4 sim: 0.87 ori_sim: 0.5253 imp: 1.25 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC(C(C)(C)C)=CC=C3C3=C(Cl)C=CC4=C3NC(=O)C43C4C(=O)N(C5=CC=C(F)C=C5)C(=O)C4C4CCC[NH+]43)C(C)=C2)C=C1
+iter: 4 sim: 0.91 ori_sim: 0.5347 imp: 0.13 decode molecule CC1=CC=C(N2C(=O)C3C4CCC[NH+]4C4(C(=O)NC5=C4C=CC(Cl)=C5C4=CC=C(C(C)(C)C)C=C4C4=CC=C(C)C=C4C)C3C2=O)C=C1
+iter: 4 sim: 0.91 ori_sim: 0.5887 imp: 0.13 decode molecule CCC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C)=C1
+iter: 4 sim: 0.91 ori_sim: 0.5887 imp: 0.13 decode molecule CCC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C)=C1
+iter: 4 sim: 0.90 ori_sim: 0.5887 imp: -0.10 decode molecule CC1=CC(CS)=CC=C1C1=CC(C(C)(C)C)=CC=C1C1=C(Cl)C=CC2=C1NC(=O)C21C2C(=O)N(C3=CC=C(F)C=C3)C(=O)C2C2CCC[NH+]21
+iter: 4 sim: 0.78 ori_sim: 0.5497 imp: 0.69 decode molecule CC1=CC=C(C2=CC(C3=C(C)C=C(C)C=C3)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C)=C1
+iter: 4 sim: 0.87 ori_sim: 0.5253 imp: 1.25 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC(C(C)(C)C)=CC=C3C3=C(Cl)C=CC4=C3NC(=O)C43C4C(=O)N(C5=CC=C(F)C=C5)C(=O)C4C4CCC[NH+]43)C(C)=C2)C=C1
+iter: 4 sim: 0.87 ori_sim: 0.5253 imp: 1.25 decode molecule CC1=CC(C)=C(C2=CC=C(C3=CC(C(C)(C)C)=CC=C3C3=C(Cl)C=CC4=C3NC(=O)C43C4C(=O)N(C5=CC=C(F)C=C5)C(=O)C4C4CCC[NH+]43)C(C)=C2)C=C1
+iter: 4 sim: 0.87 ori_sim: 0.5253 imp: 1.25 decode molecule CC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C2=C(C)C=C(C)C=C2)=C1
+iter: 4 sim: 0.91 ori_sim: 0.5887 imp: 0.13 decode molecule CCC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C)=C1
+iter: 4 sim: 0.91 ori_sim: 0.5887 imp: 0.13 decode molecule CCC1=CC=C(C2=CC(C(C)(C)C)=CC=C2C2=C(Cl)C=CC3=C2NC(=O)C32C3C(=O)N(C4=CC=C(F)C=C4)C(=O)C3C3CCC[NH+]32)C(C)=C1
+C[C@H]([NH2+]Cc1nc(Cc2ccccc2)no1)[C@@H](C)n1cccn1
+iter: 4 sim: 0.72 ori_sim: 0.4685 imp: 0.49 decode molecule CC1=CC(Cl)=C(CC2=NOC(C[NH2+]C(C3=CC=C(C(C)C)C(Cl)=C3)C(C)N3C=CC=N3)=N2)C=C1
+iter: 4 sim: 0.76 ori_sim: 0.5208 imp: 0.67 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)C)C=C1Cl
+iter: 4 sim: 0.76 ori_sim: 0.5208 imp: 0.67 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)C)C=C1Cl
+iter: 4 sim: 0.72 ori_sim: 0.4685 imp: -0.71 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=C(O)C=CC(O)=C3)=NO2)C(C)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.87 ori_sim: 0.6040 imp: 0.20 decode molecule CCC(C([NH2+]CC1=NC(CC2=CC=CC=C2)=NO1)C1=CC=C(C(C)C)C(Cl)=C1)N1C=CC=N1
+iter: 4 sim: 0.82 ori_sim: 0.5333 imp: -0.37 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=C(O)C=CC=C3)=NO2)C(C)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.73 ori_sim: 0.5169 imp: 1.52 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C2=CC(Cl)=CC=C2Cl)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.77 ori_sim: 0.5495 imp: -0.78 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C2CSC=N2)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.74 ori_sim: 0.5051 imp: -0.47 decode molecule CNC(C)C([NH2+]CC1=NC(CC2=CC=CC=C2)=NO1)C1=CC=C(C(C)C)C(Cl)=C1
+iter: 4 sim: 0.76 ori_sim: 0.5208 imp: 0.67 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)C)C=C1Cl
+iter: 4 sim: 0.72 ori_sim: 0.4860 imp: 0.17 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)N2CCCC2)C=C1Cl
+iter: 4 sim: 0.75 ori_sim: 0.5351 imp: 0.80 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C2=CC=CC=C2)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.76 ori_sim: 0.5208 imp: 0.67 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)C)C=C1Cl
+iter: 4 sim: 0.62 ori_sim: 0.4505 imp: 0.19 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C2=CC(N)=CC(N)=C2)C=C1Cl
+iter: 4 sim: 0.74 ori_sim: 0.6889 imp: -0.80 decode molecule CC1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)N2C=CC=N2)C=C1
+iter: 4 sim: 0.62 ori_sim: 0.4505 imp: 0.19 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C2=CC(N)=CC(N)=C2)C=C1Cl
+iter: 4 sim: 0.73 ori_sim: 0.5169 imp: -0.14 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C2=CC(N)=CC(N)=C2)N2C=CC=N2)C=C1Cl
+iter: 4 sim: 0.74 ori_sim: 0.5051 imp: -0.47 decode molecule CNC(C)C([NH2+]CC1=NC(CC2=CC=CC=C2)=NO1)C1=CC=C(C(C)C)C(Cl)=C1
+iter: 4 sim: 0.82 ori_sim: 0.5333 imp: 0.13 decode molecule CC1=CC(CC2=NOC(C[NH2+]C(C3=CC=C(C(C)C)C(Cl)=C3)C(C)N3C=CC=N3)=N2)=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5208 imp: 0.67 decode molecule CC(C)C1=CC=C(C([NH2+]CC2=NC(CC3=CC=CC=C3)=NO2)C(C)C)C=C1Cl
+C[C@@H]1CCCC[C@H]1[NH+]1CCC([NH2+][C@@H]2CCCCC[C@@H]2CO)CC1
+iter: 4 sim: 0.10 ori_sim: 0.1154 imp: -1.43 decode molecule CC1CC[NH2+]CC1
+iter: 4 sim: 0.70 ori_sim: 0.5258 imp: 1.19 decode molecule C1=CC=C(CCC2CCCCC2[NH+]2CCC([NH2+]C3CCCCC3)CC2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5258 imp: 1.19 decode molecule C1=CC=C(CCC2CCCCC2[NH+]2CCC([NH2+]C3CCCCC3)CC2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.63 ori_sim: 0.4659 imp: -1.03 decode molecule CCCC1CCCCC1[NH+]1CCC([NH+]2CCCCC2)CC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.58 ori_sim: 0.4051 imp: 0.65 decode molecule CCCC1CCCCC1[NH+]1CCCCC1
+iter: 4 sim: 0.58 ori_sim: 0.4051 imp: 0.65 decode molecule CCCC1CCCCC1[NH+]1CCCCC1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5426 imp: 0.89 decode molecule C1=CC=C(CC2CCCCC2[NH+]2CCC([NH2+]C3CCCCC3)CC2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.58 ori_sim: 0.4051 imp: 0.65 decode molecule CCCC1CCCCC1[NH+]1CCCCC1
+iter: 4 sim: 0.63 ori_sim: 0.4659 imp: -1.03 decode molecule CCCC1CCCCC1[NH+]1CCC([NH+]2CCCCC2)CC1
+iter: 4 sim: 0.29 ori_sim: 0.1905 imp: 2.38 decode molecule CCCC1CCCCC1[N+](=O)[O-]
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.48 ori_sim: 0.3452 imp: 0.49 decode molecule CCCC1CCCCC1[NH+]1CCCC(C)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+COCCN1C(=O)CC[C@@H]2C[NH+](Cc3cc(C)ccc3C)CC[C@@H]21
+iter: 4 sim: 0.86 ori_sim: 0.5294 imp: 0.15 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CC)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.75 ori_sim: 0.4609 imp: -0.59 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C5N=CSC5S)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.75 ori_sim: 0.4434 imp: -0.99 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=C(O)C=C(O)C=C4)CCC32)C(Cl)=C1
+iter: 4 sim: 0.72 ori_sim: 0.6129 imp: -1.40 decode molecule CC1=CC=C(C)C(C[NH+]2CCC3C(CCC(=O)N3CC3=C(O)C=CC(O)=C3)C2)=C1
+iter: 4 sim: 0.76 ori_sim: 0.4786 imp: 1.40 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C)=CC=C4C4=C(C)C=C(C)C=C4)CCC32)C(Cl)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5146 imp: -0.64 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CO)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.77 ori_sim: 0.5686 imp: 0.49 decode molecule CC1=CC=C(C)C(C[NH+]2CCC3C(CCC(=O)N3CC3=CC=C(C(C)C(C)C)C=C3Cl)C2)=C1
+iter: 4 sim: 0.76 ori_sim: 0.4786 imp: 1.40 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C)=CC=C4C4=C(C)C=C(C)C=C4)CCC32)C(Cl)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5192 imp: 0.52 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C(C)C)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.86 ori_sim: 0.5294 imp: 0.15 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CC)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.79 ori_sim: 0.5043 imp: 1.40 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C5=C(C)C=C(C)C=C5)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5146 imp: -0.16 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CS)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.84 ori_sim: 0.5146 imp: -0.16 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CS)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.75 ori_sim: 0.4609 imp: -0.59 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C5N=CSC5S)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.69 ori_sim: 0.5088 imp: 1.38 decode molecule CC1=CC=C(C)C(C[NH+]2CCC3C(CCC(=O)N3CC3=CC=C(C4=C(C)C=C(C)C=C4C)C=C3Cl)C2)=C1
+iter: 4 sim: 0.84 ori_sim: 0.5146 imp: -0.68 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CN)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.73 ori_sim: 0.4434 imp: -0.98 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=C(O)C(O)=CC=C4)CCC32)C(Cl)=C1
+iter: 4 sim: 0.79 ori_sim: 0.5043 imp: 1.40 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(C5=CC=C(C)C=C5C)=CC=C4C)CCC32)C(Cl)=C1
+iter: 4 sim: 0.86 ori_sim: 0.5294 imp: 0.15 decode molecule CCC1=CC=C(CN2C(=O)CCC3C[NH+](CC4=CC(CC)=CC=C4C)CCC32)C(Cl)=C1
+CCOC[C@@H]1CC[NH+](CC(=O)Nc2nc3ccc(F)cc3s2)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.78 ori_sim: 0.6200 imp: 0.41 decode molecule CC(C)C(C)C1=CC=C(Br)C=C1COCC1CC[NH+](CC(=O)NC2=NC3=CC=C(F)C=C3S2)C1
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.82 ori_sim: 0.6526 imp: 0.31 decode molecule CC(C)C1=CC=C(Br)C=C1COCC1CC[NH+](CC(=O)NC2=NC3=CC=C(F)C=C3S2)C1
+iter: 4 sim: 0.80 ori_sim: 0.6392 imp: 0.43 decode molecule CC(C)(C)C1=CC=C(Br)C=C1COCC1CC[NH+](CC(=O)NC2=NC3=CC=C(F)C=C3S2)C1
+iter: 4 sim: 0.46 ori_sim: 0.5897 imp: -0.93 decode molecule O=C(C[NH+]1CCCCC1)NC1=NC2=CC=C(F)C=C2S1
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.46 ori_sim: 0.5897 imp: -0.93 decode molecule O=C(C[NH+]1CCCCC1)NC1=NC2=CC=C(F)C=C2S1
+iter: 4 sim: 0.46 ori_sim: 0.5897 imp: -0.93 decode molecule O=C(C[NH+]1CCCCC1)NC1=NC2=CC=C(F)C=C2S1
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.71 ori_sim: 0.5636 imp: 1.26 decode molecule CC1=CC(C)=C(C2=CC=C(Br)C=C2COCC2CC[NH+](CC(=O)NC3=NC4=CC=C(F)C=C4S3)C2)C=C1
+iter: 4 sim: 0.89 ori_sim: 0.6489 imp: -0.80 decode molecule O=C(C[NH+]1CCC(COCC2=CC(Br)=CC=C2CO)C1)NC1=NC2=CC=C(F)C=C2S1
+O=C([O-])c1cc(S(=O)(=O)[N-]c2ccc(F)cc2C(=O)[O-])c[nH]1
+iter: 4 sim: 0.65 ori_sim: 0.5326 imp: 0.52 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=CC(N)=C(C)C=C2)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.65 ori_sim: 0.5444 imp: 0.34 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=CC(N)=CC=C2)=C1
+iter: 4 sim: 0.71 ori_sim: 0.5658 imp: -0.83 decode molecule CCC(=O)C1=CC(S(=O)(=O)[N-]C2=CC=C(F)C=C2CO)=CN1
+iter: 4 sim: 0.52 ori_sim: 0.4074 imp: -0.05 decode molecule CCC(=O)C1=CC(S(=O)(=O)[N-]C2=CC=C(Cl)C=C2)=CN1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.65 ori_sim: 0.5444 imp: 0.34 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=CC(N)=CC=C2)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.66 ori_sim: 0.5568 imp: 0.83 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=CC=CC=C2)=C1
+iter: 4 sim: 0.65 ori_sim: 0.5444 imp: 0.34 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=CC(N)=CC=C2)=C1
+iter: 4 sim: 0.65 ori_sim: 0.5326 imp: 0.63 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(=O)C2=C(O)C=C(C)C=C2)=C1
+iter: 4 sim: 0.74 ori_sim: 0.5890 imp: -0.34 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.60 ori_sim: 0.4805 imp: -0.42 decode molecule CCC(=O)C1=CC(S(=O)(=O)[N-]C2=CC=C(F)C=C2)=CN1
+iter: 4 sim: 0.57 ori_sim: 0.3867 imp: -0.65 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)CC
+iter: 4 sim: 0.58 ori_sim: 0.4624 imp: 0.75 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C2=CC(N)=C(C)C=C2)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.81 ori_sim: 0.6806 imp: -1.02 decode molecule CCC(=O)C1=CC(F)=CC=C1[N-]S(=O)(=O)C1=CNC(C(N)=O)=C1
+C/C=C(\C)[C@@H]1C=C[C@@H]2C[C@H](C)C[C@H](C)[C@@H]2[C@@H]1C(=O)C1=C([O-])[C@H](C[C@](C)(O)C(=O)[O-])NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.58 ori_sim: 0.5938 imp: -1.89 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(N)CNC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.69 ori_sim: 0.5478 imp: -1.24 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(C2CSC=N2)NC1=O
+iter: 4 sim: 0.78 ori_sim: 0.4655 imp: -0.02 decode molecule CC(C)CC1NC(=O)C(C(=O)C2C(C(C)C)C=CC3CC(C)CC(C)C32)=C1NC(C)(C)C
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.67 ori_sim: 0.5246 imp: -0.07 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC(N)=CC(N)=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.73 ori_sim: 0.4621 imp: 1.28 decode molecule CC=C(C1=C(C)C=C(C)C=C1)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC(C)(C)C)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.70 ori_sim: 0.5424 imp: 0.84 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NC2=CC=CC=C2)C(CC(C)C)NC1=O
+iter: 4 sim: 0.81 ori_sim: 0.6095 imp: -0.51 decode molecule CC=C(C)C1C=CC2CC(C)CC(C)C2C1C(=O)C1=C(NCC)C(CC(C)C)NC1=O
+NC(=O)CN1CCN([C@H]2CC(=O)N(CCc3ccccc3)C2=O)CC1
+iter: 4 sim: 0.76 ori_sim: 0.5041 imp: 0.52 decode molecule CC1=CC(C)=C(C(C)C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.82 ori_sim: 0.4909 imp: 0.32 decode molecule CC(C)C1=CC=C(CN2CCN(C3CC(=O)N(CCC4=C(Cl)C=CC=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.72 ori_sim: 0.4310 imp: 0.70 decode molecule CC(C)C1=CC=C(CN2CCN(C3CC(=O)N(CCC4=C(Cl)C=CC(Br)=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.82 ori_sim: 0.4909 imp: 0.09 decode molecule CC1=C(CCN2C(=O)CC(N3CCN(CC4=CC=C(C(C)C)C=C4Cl)CC3)C2=O)C=CC=C1
+iter: 4 sim: 0.80 ori_sim: 0.4775 imp: 0.15 decode molecule CC1=CC=C(CCN2C(=O)CC(N3CCN(CC4=CC=C(C(C)C)C=C4Cl)CC3)C2=O)C=C1
+iter: 4 sim: 0.82 ori_sim: 0.4909 imp: 0.32 decode molecule CC(C)C1=CC=C(CN2CCN(C3CC(=O)N(CCC4=C(Cl)C=CC=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.82 ori_sim: 0.6162 imp: -0.33 decode molecule CCC1=CC=C(CN2CCN(C3CC(=O)N(CCC4=CC=CC=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.89 ori_sim: 0.5865 imp: -0.12 decode molecule CCC(C)C1=CC=C(CN2CCN(C3CC(=O)N(CCC4=CC=CC=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.71 ori_sim: 0.5259 imp: 0.70 decode molecule CC1=CC(C)=C(C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5259 imp: 0.70 decode molecule CC1=CC(C)=C(C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5259 imp: 0.70 decode molecule CC1=CC(C)=C(C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C=C1
+iter: 4 sim: 0.71 ori_sim: 0.5259 imp: -0.06 decode molecule CC1CCC(C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C(C)C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.80 ori_sim: 0.4775 imp: 0.02 decode molecule CC(C)C1=CC=C(CN2CCN(C3CC(=O)N(CCC4=CC=C(F)C=C4)C3=O)CC2)C(Cl)=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.71 ori_sim: 0.5495 imp: -2.02 decode molecule O=C1CC(N2CCN(CC3=CC=C(C4N=CSC4O)C=C3Cl)CC2)C(=O)N1CCC1=CC=CC=C1
+iter: 4 sim: 0.76 ori_sim: 0.5041 imp: 0.52 decode molecule CC1=CC(C)=C(C(C)C2=CC=C(CN3CCN(C4CC(=O)N(CCC5=CC=CC=C5)C4=O)CC3)C(Cl)=C2)C=C1
+CCc1cc(C(=O)NCc2cc3n(n2)CCCN(S(C)(=O)=O)C3)on1
+iter: 4 sim: 0.90 ori_sim: 0.6286 imp: -0.30 decode molecule CCC1=CC(C(C)CC)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(CC)=NO3)C=C2C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.90 ori_sim: 0.6286 imp: -0.30 decode molecule CCC1=CC(C(C)CC)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(CC)=NO3)C=C2C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.73 ori_sim: 0.4919 imp: 1.15 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=C(C)C=C(C)C=C4)=NO3)C=C2C1
+iter: 4 sim: 0.73 ori_sim: 0.4919 imp: 1.15 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=C(C)C=C(C)C=C4)=NO3)C=C2C1
+iter: 4 sim: 0.73 ori_sim: 0.4919 imp: 1.15 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=C(C)C=C(C)C=C4)=NO3)C=C2C1
+iter: 4 sim: 0.69 ori_sim: 0.4530 imp: -0.20 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(N)=CC(N)=C3)C=C2C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.73 ori_sim: 0.4919 imp: 1.15 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=C(C)C=C(C)C=C4)=NO3)C=C2C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.83 ori_sim: 0.5596 imp: 0.34 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C(C)C)=NO3)C=C2C1
+iter: 4 sim: 0.73 ori_sim: 0.4919 imp: 1.15 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=C(C)C=C(C)C=C4)=NO3)C=C2C1
+iter: 4 sim: 0.72 ori_sim: 0.4919 imp: -0.04 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=CC(N)=CC(N)=C4)=NO3)C=C2C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.72 ori_sim: 0.4919 imp: -0.04 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C4=CC(N)=CC(N)=C4)=NO3)C=C2C1
+iter: 4 sim: 0.77 ori_sim: 0.5410 imp: 0.42 decode molecule CCC1=CC(C(C)C2=C(C)C=C(C)C=C2)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(CC)=NO3)C=C2C1
+iter: 4 sim: 0.75 ori_sim: 0.5152 imp: -0.29 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(C)=O)C=C2C1
+iter: 4 sim: 0.82 ori_sim: 0.5495 imp: 0.42 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(C(C)(C)C)=NO3)C=C2C1
+iter: 4 sim: 0.71 ori_sim: 0.4530 imp: 0.45 decode molecule CCC1=CC(C(C)C)=CC=C1S(=O)(=O)N1CCCN2N=C(CNC(=O)C3=CC(N)=C(C)C=C3)C=C2C1
+CN(C[C@H]1C=c2ccccc2=[NH+]C1=O)C(=O)c1ccccc1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.75 ori_sim: 0.5133 imp: 0.96 decode molecule CC1=CC(C)=C(C(C)(C)C2=CC=C(N(CC3C=C4C=CC=CC4=[NH+]C3=O)C(=O)C3=CC=CC=C3)C=C2)C=C1
+iter: 4 sim: 0.77 ori_sim: 0.6333 imp: -0.78 decode molecule O=C1[NH+]=C2C=CC=CC2=CC1CN(C(=O)C1=CC=CC=C1)C1=CC=C(CS)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.69 ori_sim: 0.5472 imp: -0.01 decode molecule CC1CCC(C2=CC=C(N(CC3C=C4C=CC=CC4=[NH+]C3=O)C(=O)C3=CC=CC=C3)C=C2)C(C)C1
+iter: 4 sim: 0.54 ori_sim: 0.3548 imp: 4.32 decode molecule CC(C)CN(C(=O)C1=CC=CC=C1)C1=CC=C(C(C)(C)C)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.4330 imp: 0.41 decode molecule CC(C)(C)C1=CC=C(N(CC2C=CC=[NH+]C2=O)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.82 ori_sim: 0.5149 imp: -0.34 decode molecule CC(C)(C)C1=CC=C(N(CC2C=C3C=CC=CC3=[NH+]C2=O)C(=O)C2=C(O)C=CC=C2)C=C1
+iter: 4 sim: 0.80 ori_sim: 0.4854 imp: 0.19 decode molecule CC1=CC=C(C(=O)N(CC2C=C3C=CC=CC3=[NH+]C2=O)C2=CC=C(C(C)(C)C)C=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.67 ori_sim: 0.3980 imp: 4.88 decode molecule CC(C)(C)C1=CC=C(N(CC2=CC=CC=C2)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.82 ori_sim: 0.6744 imp: -0.61 decode molecule CC1=CC=C(N(CC2C=C3C=CC=CC3=[NH+]C2=O)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.79 ori_sim: 0.6517 imp: -0.44 decode molecule CCC1=CC=C(N(CC2C=C3C=CC=CC3=[NH+]C2=O)C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.79 ori_sim: 0.6517 imp: -0.44 decode molecule CCC1=CC=C(N(CC2C=C3C=CC=CC3=[NH+]C2=O)C(=O)C2=CC=CC=C2)C=C1
+O=S(=O)(C1CC1)N1CCC([NH2+]Cc2ccncc2)CC1
+iter: 4 sim: 0.69 ori_sim: 0.5165 imp: 1.57 decode molecule CC1=CC(C)=C(C2=CC=C(C[NH2+]C3CCN(S(=O)(=O)C4CC4)CC3)C=C2Cl)C=C1
+iter: 4 sim: 0.58 ori_sim: 0.3750 imp: 1.48 decode molecule CC1=CC=C(S(=O)(=O)N2CCC([NH2+]CC3=CC=C(C)C(Cl)=C3)CC2)C(C)=C1
+iter: 4 sim: 0.81 ori_sim: 0.6133 imp: 0.12 decode molecule CCC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3CC3)CC2)C=C1Cl
+iter: 4 sim: 0.58 ori_sim: 0.3750 imp: 0.39 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC(N)=C(O)C=C3)CC2)C=C1Cl
+iter: 4 sim: 0.61 ori_sim: 0.3913 imp: 1.20 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC=CC=C3)CC2)C=C1Cl
+iter: 4 sim: 0.43 ori_sim: 0.2069 imp: -0.91 decode molecule CC1=CC=C(C[NH2+]C2CCNCC2C)C=C1Cl
+iter: 4 sim: 0.69 ori_sim: 0.5783 imp: -0.86 decode molecule O=S(=O)(C1CC1)N1CCC([NH2+]CC2=CC=C(C3CSC=N3)C(Cl)=C2)CC1
+iter: 4 sim: 0.72 ori_sim: 0.4375 imp: -0.00 decode molecule CCS(=O)(=O)N1CCC([NH2+]CC2=CC=C(C)C(Cl)=C2)CC1
+iter: 4 sim: 0.58 ori_sim: 0.3750 imp: 1.48 decode molecule CC1=CC=C(S(=O)(=O)N2CCC([NH2+]CC3=CC=C(C)C(Cl)=C3)CC2)C(C)=C1
+iter: 4 sim: 0.61 ori_sim: 0.3913 imp: 1.20 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC=CC=C3)CC2)C=C1Cl
+iter: 4 sim: 0.58 ori_sim: 0.3750 imp: 0.52 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC=C(O)C(O)=C3)CC2)C=C1Cl
+iter: 4 sim: 0.69 ori_sim: 0.5412 imp: 0.97 decode molecule O=S(=O)(C1CC1)N1CCC([NH2+]CC2=CC=C(C3CCCC3)C(Cl)=C2)CC1
+iter: 4 sim: 0.79 ori_sim: 0.6133 imp: -0.27 decode molecule O=S(=O)(C1CC1)N1CCC([NH2+]CC2=CC=C(CS)C(Cl)=C2)CC1
+iter: 4 sim: 0.81 ori_sim: 0.6133 imp: 0.12 decode molecule CCC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3CC3)CC2)C=C1Cl
+iter: 4 sim: 0.69 ori_sim: 0.5165 imp: 1.57 decode molecule CC1=CC(C)=C(C2=CC=C(C[NH2+]C3CCN(S(=O)(=O)C4CC4)CC3)C=C2Cl)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.4268 imp: 0.19 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C(C)C)CC2)C=C1Cl
+iter: 4 sim: 0.60 ori_sim: 0.3830 imp: 0.88 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC=C(O)C=C3)CC2)C=C1Cl
+iter: 4 sim: 0.58 ori_sim: 0.3750 imp: 0.19 decode molecule CC1=CC=C(C[NH2+]C2CCN(S(=O)(=O)C3=CC(N)=CC(N)=C3)CC2)C=C1Cl
+iter: 4 sim: 0.69 ori_sim: 0.5165 imp: 1.57 decode molecule CC1=CC(C)=C(C2=CC=C(C[NH2+]C3CCN(S(=O)(=O)C4CC4)CC3)C=C2Cl)C=C1
+iter: 4 sim: 0.69 ori_sim: 0.5165 imp: 1.57 decode molecule CC1=CC(C)=C(C2=CC=C(C[NH2+]C3CCN(S(=O)(=O)C4CC4)CC3)C=C2Cl)C=C1
+CCOC(=O)CN1C(=O)CS[C@@]12C(=O)Nc1ccccc12
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+iter: 4 sim: 0.43 ori_sim: 0.1889 imp: 1.07 decode molecule CNCC(=O)OCC1=CC(C(C)(C)C)=CC=C1Cl
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.79 ori_sim: 0.6588 imp: -0.43 decode molecule CCC1=CC=C(Cl)C(COC(=O)CN2C(=O)CSC23C(=O)NC2=CC=CC=C23)=C1
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.77 ori_sim: 0.6207 imp: -0.77 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(CS)=CC=C1Cl
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.68 ori_sim: 0.5340 imp: 0.73 decode molecule CC1=CC(C)=C(C2=CC=C(Cl)C(COC(=O)CN3C(=O)CSC34C(=O)NC3=CC=CC=C34)=C2)C=C1
+iter: 4 sim: 0.70 ori_sim: 0.5567 imp: -1.25 decode molecule O=C(CN1C(=O)CSC12C(=O)NC1=CC=CC=C12)OCC1=CC(C2CSC=N2)=CC=C1Cl
+O=C([O-])C12C[C@@H]3C[C@H](C1)CC(n1cc([N+](=O)[O-])cn1)(C3)C2
+iter: 4 sim: 0.76 ori_sim: 0.6353 imp: -0.45 decode molecule O=C(C1=CC=C(CCl)C=C1)C12CC3CC(C1)CC(N1C=C([N+](=O)[O-])C=N1)(C3)C2
+iter: 4 sim: 0.78 ori_sim: 0.6207 imp: -0.08 decode molecule CC(C)C1=CC=C(C(=O)C23CC4CC(C2)CC(N2C=C([N+](=O)[O-])C=N2)(C4)C3)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.70 ori_sim: 0.5455 imp: 0.58 decode molecule CC1=CC(C2=CC=C(C(=O)C34CC5CC(C3)CC(N3C=C([N+](=O)[O-])C=N3)(C5)C4)C=C2)=C(C)S1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.22 ori_sim: 0.2571 imp: 6.99 decode molecule CC(C)N1C=C([N+](=O)[O-])C=N1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.24 ori_sim: 0.2118 imp: 6.91 decode molecule O=[N+]([O-])C1=CN(C2=CC=C(S)C=C2S)N=C1
+iter: 4 sim: 0.78 ori_sim: 0.6353 imp: -0.44 decode molecule CCC1=CC=C(C(=O)C23CC4CC(C2)CC(N2C=C([N+](=O)[O-])C=N2)(C4)C3)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.78 ori_sim: 0.6353 imp: -0.44 decode molecule CCC1=CC=C(C(=O)C23CC4CC(C2)CC(N2C=C([N+](=O)[O-])C=N2)(C4)C3)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.76 ori_sim: 0.6353 imp: -1.24 decode molecule O=C(C1=CC=C(CO)C=C1)C12CC3CC(C1)CC(N1C=C([N+](=O)[O-])C=N1)(C3)C2
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.31 ori_sim: 0.0583 imp: 10.12 decode molecule CC(C)(C)C1=CC=C(C(=O)C2=CC=CC=C2)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.78 ori_sim: 0.6353 imp: -0.44 decode molecule CCC1=CC=C(C(=O)C23CC4CC(C2)CC(N2C=C([N+](=O)[O-])C=N2)(C4)C3)C=C1
+iter: 4 sim: 0.00 ori_sim: 0.00 imp: 0.00 cannot decode
+iter: 4 sim: 0.22 ori_sim: 0.2571 imp: 6.99 decode molecule CC(C)N1C=C([N+](=O)[O-])C=N1

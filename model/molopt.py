@@ -43,7 +43,7 @@ class MolOpt(nn.Module):
         #self.score_func = args.score_func
         
         # embedding for substructures and atoms
-        self.embedding = nn.Embedding(vocab.size(), args.embed_size, padding_idx=0).to(device)
+        self.embedding = nn.Embedding(vocab.size(), args.embed_size).to(device)
         self.E_a = torch.eye(atom_size).to(device)
         
         # encoder
@@ -124,43 +124,43 @@ class MolOpt(nn.Module):
         loss = loss + (kl_loss,)
         
         if num[-1] > 0:
-            total_loss = tar_loss + del_loss + node_loss + topo_loss + atom1_loss + 0.3 * atom2_loss + self.beta * kl_loss
+            total_loss = tar_loss + del_loss + node_loss + topo_loss + atom1_loss + atom2_loss + self.beta * kl_loss
         else:
             total_loss = tar_loss + del_loss + node_loss + topo_loss + atom1_loss + self.beta * kl_loss
         
         return total_loss, loss, acc, rec, num, ((del_mean.data).cpu().numpy(), (del_var.data).cpu().numpy(), (add_mean.data).cpu().numpy(), (add_var.data).cpu().numpy())
     
-    def predict_prop(self, x_tree_node_vecs, y_tree_node_vecs, x_del_vecs, y_add_vecs, x_scores, y_scores, x_scope, y_scope):
-        
-        x_tree_vecs = []
-        y_tree_vecs = []
-        
-        for scope in x_scope:
-            x_tree_vecs.append(x_tree_node_vecs[scope[0]:scope[0]+scope[1],:].sum(dim=0))
-            
-        for scope in y_scope:
-            y_tree_vecs.append(y_tree_node_vecs[scope[0]:scope[0]+scope[1],:].sum(dim=0))
-        
-        x_tree_vecs = torch.stack(x_tree_vecs, dim=0)
-        y_tree_vecs = torch.stack(y_tree_vecs, dim=0)
-        zx_del_vecs, _, _, _ = self.norm_sample(x_del_vecs, self.del_mean, self.del_var)
-        zx_add_vecs, _, _, _ = self.norm_sample(y_add_vecs, self.add_mean, self.add_var)
-        zx_tree_vecs = torch.cat((zx_del_vecs, zx_add_vecs), dim=1)
-        
-        zy_del_vecs, _, _, _ = self.norm_sample(y_add_vecs, self.del_mean, self.del_var)
-        zy_add_vecs, _, _, _ = self.norm_sample(x_del_vecs, self.add_mean, self.add_var)        
-        zy_tree_vecs = torch.cat((zy_del_vecs, zy_add_vecs), dim=1)
-        
-        xtoy_scores = y_scores - x_scores
-        ytox_scores = x_scores - y_scores
-        scores = torch.cat((xtoy_scores, ytox_scores), dim=0)
-        
-        xtoy_pred = self.propNN(torch.cat((x_tree_vecs, zx_tree_vecs), dim=1)).squeeze()
-        ytox_pred = self.propNN(torch.cat((y_tree_vecs, zy_tree_vecs), dim=1)).squeeze()
-        pred = torch.cat((xtoy_pred, ytox_pred), dim=0)
-        
-        prop_loss = self.prop_loss(pred, scores)
-        return prop_loss
+#    def predict_prop(self, x_tree_node_vecs, y_tree_node_vecs, x_del_vecs, y_add_vecs, x_scores, y_scores, x_scope, y_scope):
+#        
+#        x_tree_vecs = []
+#        y_tree_vecs = []
+#        
+#        for scope in x_scope:
+#            x_tree_vecs.append(x_tree_node_vecs[scope[0]:scope[0]+scope[1],:].sum(dim=0))
+#            
+#        for scope in y_scope:
+#            y_tree_vecs.append(y_tree_node_vecs[scope[0]:scope[0]+scope[1],:].sum(dim=0))
+#        
+#        x_tree_vecs = torch.stack(x_tree_vecs, dim=0)
+#        y_tree_vecs = torch.stack(y_tree_vecs, dim=0)
+#        zx_del_vecs, _, _, _ = self.norm_sample(x_del_vecs, self.del_mean, self.del_var)
+#        zx_add_vecs, _, _, _ = self.norm_sample(y_add_vecs, self.add_mean, self.add_var)
+#        zx_tree_vecs = torch.cat((zx_del_vecs, zx_add_vecs), dim=1)
+#        
+#        zy_del_vecs, _, _, _ = self.norm_sample(y_add_vecs, self.del_mean, self.del_var)
+#        zy_add_vecs, _, _, _ = self.norm_sample(x_del_vecs, self.add_mean, self.add_var)        
+#        zy_tree_vecs = torch.cat((zy_del_vecs, zy_add_vecs), dim=1)
+#        
+#        xtoy_scores = y_scores - x_scores
+#        ytox_scores = x_scores - y_scores
+#        scores = torch.cat((xtoy_scores, ytox_scores), dim=0)
+#        
+#        xtoy_pred = self.propNN(torch.cat((x_tree_vecs, zx_tree_vecs), dim=1)).squeeze()
+#        ytox_pred = self.propNN(torch.cat((y_tree_vecs, zy_tree_vecs), dim=1)).squeeze()
+#        pred = torch.cat((xtoy_pred, ytox_pred), dim=0)
+#        
+#        prop_loss = self.prop_loss(pred, scores)
+#        return prop_loss
         
     def norm_sample(self, diff_vecs, mean, var):
         """ Calculate the difference between x_vecs and y_vecs
@@ -184,7 +184,7 @@ class MolOpt(nn.Module):
         
         return z_vecs, kl_loss, z_mean, z_log_var
     
-    def test(self, x_batch, x_tree, lr=1.0, num_iter=20, reselect_num=1):
+    def test(self, x_batch, x_tree, reselect_num=1):
         x_graphs, x_tensors, x_orders, x_scores = x_batch
         x_tensors = make_cuda(x_tensors)
         score1 = x_scores[0]

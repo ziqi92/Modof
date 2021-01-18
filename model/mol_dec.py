@@ -25,7 +25,7 @@ class MolDecoder(nn.Module):
         self.hidden_size = hidden_size
         self.latent_size = latent_size
         self.depthT = depthT
-        self.vocab_size = vocab.size()+1
+        self.vocab_size = vocab.size()
         self.vocab = vocab
         self.avocab = avocab
         
@@ -52,23 +52,20 @@ class MolDecoder(nn.Module):
             self.U_a = nn.Linear(hidden_size, 1).to(device)
         elif score_func == 2:
             # Parameters for function used to predict parent attachments.
-            self.W_a1 = nn.Linear(4 * hidden_size, hidden_size).to(device)
+            self.W_a1 = nn.Linear(latent_size + self.embedding_size + 2 * hidden_size, hidden_size).to(device)
             self.U_a1 = nn.Linear(hidden_size, hidden_size).to(device)
             
             # Parameters for function used to predict child attachments.
-            self.W_a2 = nn.Linear(3 * hidden_size, hidden_size).to(device)
+            self.W_a2 = nn.Linear(latent_size + self.embedding_size + 1 * hidden_size, hidden_size).to(device)
             self.U_a2 = nn.Linear(hidden_size, hidden_size).to(device)
 
             # Parameters for function used to predict disconnection site
-            self.W_a = nn.Linear(2 * hidden_size, hidden_size).to(device)
+            self.W_a = nn.Linear(2 * latent_size_size, hidden_size).to(device)
             self.U_a = nn.Linear(hidden_size, hidden_size).to(device)
 
         else:
             raise ValueError("Wrong Value for Score Function (should be 1 or 2)")        
-
-        if tree_lstm:
-            self.lstm = TreeLSTM(embed_size, hidden_size, depthT)
-
+        
         # Parameters for function used to predict removal fragments
         self.W_d = nn.Linear(latent_size + hidden_size, hidden_size).to(device)
         self.U_d = nn.Linear(hidden_size, 1).to(device)

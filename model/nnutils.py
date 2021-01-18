@@ -83,6 +83,7 @@ def MPNN(fmess, mess_graph, W_g, depth, hidden_size):
         messages = torch.relu(W_g(torch.cat([fmess, nei_message], dim=1)))
         multi_layer_mess.append(messages)
         messages[0,:] = messages[0,:] * 0
+        
     
     messages = torch.cat(multi_layer_mess, dim=1)
     messages[0,:] = messages[0,:] * 0 
