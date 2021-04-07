@@ -16,7 +16,7 @@ from nnutils import index_select_ND, GRU, MPL, bfs, unique_tensor
 from mol_tree import MolTree
 import molopt
 from chemutils import get_mol, get_uniq_atoms, get_smiles, graph_to_mol, mol_to_graph, attach_mol_graph, bond_equal
-
+import pdb
 device = "cuda" if torch.cuda.is_available() else "cpu"
         
 class MolDecoder(nn.Module):
@@ -136,7 +136,9 @@ class MolDecoder(nn.Module):
         dgraph = tree_tensors[5]
         _, _, agraph, bgraph, egraph, _ = graph_tensors
         cls = index_select_ND(dgraph, 0, node_idx)
+        
         # Get all the atoms within the node `node_idx`
+        old_amask = copy.deepcopy(amask)
         amask.scatter_(0, cls[cls>0].unsqueeze(1), 1)
         
         # get the new edge mask from the atom mask 
@@ -161,6 +163,7 @@ class MolDecoder(nn.Module):
         """
         nmask, emask = masks
         _, _, agraph, bgraph, cgraph, dgraph, _ = tree_tensors
+        
         nmask.scatter_(0, node_idx.unsqueeze(1), 1)
         
         # Get the indices of messages/edges connected with node
@@ -555,15 +558,20 @@ class MolDecoder(nn.Module):
         topo_rec = recall_score(topo_targets.data.to('cpu'), topo.data.to('cpu'))
         
         # attachment point prediction in parent node
-        atom1_labels = torch.LongTensor(atom1_labels).to(device)
-        atom1_targets1 = torch.LongTensor(atom1_targets1).to(device)
-        atom1_targets2 = torch.stack(atom1_targets2, dim=0)
-        atom1_hiddens1 = torch.cat(atom1_hiddens1, dim=0)
-        atom1_hiddens2 = torch.cat(atom1_hiddens2, dim=0)
-        atom1_scores = self.scoring(atom1_hiddens1, atom1_hiddens2, "atom1")
-        atom1_loss, atom1_acc = self.atom_loss(atom1_scores, atom1_targets1, atom1_targets2, atom1_labels)
-        atom1_loss = atom1_loss / atom1_targets1.size(0)
-        atom1_num = atom1_targets1.size(0)
+        if len(atom1_labels) > 0:
+            atom1_labels = torch.LongTensor(atom1_labels).to(device)
+            atom1_targets1 = torch.LongTensor(atom1_targets1).to(device)
+            atom1_targets2 = torch.stack(atom1_targets2, dim=0)
+            atom1_hiddens1 = torch.cat(atom1_hiddens1, dim=0)
+            atom1_hiddens2 = torch.cat(atom1_hiddens2, dim=0)
+            atom1_scores = self.scoring(atom1_hiddens1, atom1_hiddens2, "atom1")
+            atom1_loss, atom1_acc = self.atom_loss(atom1_scores, atom1_targets1, atom1_targets2, atom1_labels)
+            atom1_loss = atom1_loss / atom1_targets1.size(0)
+            atom1_num = atom1_targets1.size(0)
+        else:
+            atom1_loss = 0.0
+            atom1_acc = 0.0
+            atom1_num = 0
         
         # attachment point prediction in child node
         if len(atom2_labels) > 0:
@@ -743,6 +751,7 @@ class MolDecoder(nn.Module):
             else:
                 break
         
+        
         # ========================================================================
         # Remove and update deleted nodes
 
@@ -822,7 +831,9 @@ class MolDecoder(nn.Module):
                 print(e)
             
             mol = graph_to_mol(new_graph)
+            
             hatom1 = self.encoder.encode_atom(graph_tensors) 
+            
             node_embedding = self.get_node_embedding(tree_tensors, parent_node, masks , hatom1)[0,:]
             
             # child node connection prediction
@@ -872,7 +883,7 @@ class MolDecoder(nn.Module):
             fnode, fmess, agraph, bgraph, cgraph, dgraph, _ = tensors
         else:
             fnode, fmess, agraph, bgraph, cgraph, dgraph = tensors
-
+        
         for node_idx in node_idxs:
             if tree:
                 node_wid = self.vocab[graph.nodes[node_idx]['label']]
@@ -884,30 +895,36 @@ class MolDecoder(nn.Module):
             if node_idx >= fnode.size(0):
                 fnode = torch.cat((fnode, torch.tensor([node_wid]).to(device).long()), dim=0)
                 
-            edge_list = [(e[0], e[1], graph[e[0]][e[1]]['mess_idx']) for e in graph.edges]
-            edge_list = sorted(edge_list, key=lambda e: e[2])
+        edge_list = [(e[0], e[1], graph[e[0]][e[1]]['mess_idx']) for e in graph.edges]
+        edge_list = sorted(edge_list, key=lambda e: e[2])
             
-            for edge in edge_list:
-                if edge[0] != node_idx and edge[1] != node_idx: continue
+        for edge in edge_list:
+            if edge[0] not in node_idxs and edge[1] not in node_idxs: continue
+            if edge[2] < fmess.shape[0]: continue
+                
+            if tree:
                 fmess = torch.cat((fmess, torch.tensor([[edge[0], edge[1], 0]]).to(device).long()), dim=0)
-                
-                if edge[0] < agraph.size(0):
-                    mess_idx = [graph[e[1]][e[0]]['mess_idx'] for e in graph.edges(edge[0])]
-                    agraph[edge[0]] = torch.tensor(mess_idx + [0] * (agraph.size(1) - len(mess_idx))).to(device).long()
-                else:
-                    mess_idx = [graph[e[1]][e[0]]['mess_idx'] for e in graph.edges(edge[1])]
-                    agraph = torch.cat((agraph, torch.tensor([mess_idx + [0] * (agraph.size(1) - len(mess_idx))]).to(device).long()), dim=0)
-                
-                eid = graph[edge[0]][edge[1]]['mess_idx']
-                tmp = []
-                for w in graph.predecessors(edge[0]):
-                    if w == edge[1]: continue
-                    tmp.append( graph[w][edge[0]]['mess_idx'] )
-                bgraph = torch.cat((bgraph, torch.tensor([tmp+[0] * (bgraph.size(1) - len(tmp))]).to(device).long()), dim=0)
-       
-                if tree:
-                    anchor = graph[edge[0]][edge[1]]['anchor']
-                    cgraph = torch.cat((cgraph, torch.tensor([anchor + [0] * (cgraph.size(1) - len(anchor))]).to(device).long()), dim=0) 
+            else:
+                fmess = torch.cat((fmess, torch.tensor([[edge[0], edge[1], graph[edge[0]][edge[1]]['label']]]).to(device).long()), dim=0)
+            
+            # update the neighbor edges of edge[0] in the agraph
+            if edge[0] < agraph.size(0):
+                mess_idx = [graph[e[1]][e[0]]['mess_idx'] for e in graph.edges(edge[0])]
+                agraph[edge[0]] = torch.tensor(mess_idx + [0] * (agraph.size(1) - len(mess_idx))).to(device).long()
+            else:
+                mess_idx = [graph[e[1]][e[0]]['mess_idx'] for e in graph.edges(edge[0])]
+                agraph = torch.cat((agraph, torch.tensor([mess_idx + [0] * (agraph.size(1) - len(mess_idx))]).to(device).long()), dim=0)
+            
+            tmp = []
+            for w in graph.predecessors(edge[0]):
+                if w == edge[1]: continue
+                tmp.append( graph[w][edge[0]]['mess_idx'] )
+            bgraph = torch.cat((bgraph, torch.tensor([tmp+[0] * (bgraph.size(1) - len(tmp))]).to(device).long()), dim=0)
+   
+            if tree:
+                anchor = graph[edge[0]][edge[1]]['anchor']
+                cgraph = torch.cat((cgraph, torch.tensor([anchor + [0] * (cgraph.size(1) - len(anchor))]).to(device).long()), dim=0) 
+        
         if tree:
             return [fnode, fmess, agraph, bgraph, cgraph, dgraph] + tensors[6:]
         else:
@@ -966,7 +983,7 @@ class MolDecoder(nn.Module):
                 # the attachment can be an atom or a bond
                 # predict the scores of atoms and bonds in parentnode
                 node_atom1 = index_select_ND(hatoms, 0, torch.tensor(tree.nodes[node_idx]['bonds']).to(device).long()).sum(dim=1)
-                node_atom2 = node_atom + torch.zeros((node_atom.size(0), 1))
+                node_atom2 = node_atom + torch.zeros((node_atom.size(0), 1)).to(device)
                 node_atom = torch.cat((node_atom1, node_atom2), dim=0)
                 uniq_node_atom, inverse_idxs = unique_tensor(node_atom)
                 

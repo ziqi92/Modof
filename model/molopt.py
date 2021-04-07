@@ -19,7 +19,7 @@ from chemutils import set_atommap, copy_edit_mol
 import rdkit.Chem as Chem
 from rdkit.Chem import AllChem
 from rdkit import DataStructs
-from properties import similarity, penalized_logp
+from properties import similarity, get_prop
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -184,7 +184,7 @@ class MolOpt(nn.Module):
         
         return z_vecs, kl_loss, z_mean, z_log_var
     
-    def test(self, x_batch, x_tree, reselect_num=1):
+    def test(self, x_batch, x_tree, reselect_num=1, prop="logp", sim_type="binary"):
         x_graphs, x_tensors, x_orders, x_scores = x_batch
         x_tensors = make_cuda(x_tensors)
         score1 = x_scores[0]
@@ -204,9 +204,9 @@ class MolOpt(nn.Module):
             return x_tree.smiles, 1.0, 0, score1, score1
         set_atommap(new_mol)
         try:
-            new_smiles = Chem.MolToSmiles(new_mol)
-            score2 = penalized_logp(new_smiles)
-            sim = similarity(x_tree.smiles, new_smiles)
+            new_smiles = Chem.MolToSmiles(new_mol, isomericSmiles=False)
+            score2 = get_prop(new_smiles, prop=prop)
+            sim = similarity(x_tree.smiles, new_smiles, sim_type)
         except Exception as e:
             print(e)
             return x_tree.smiles, 1.0, reselect, score1, score1
