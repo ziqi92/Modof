@@ -48,7 +48,7 @@ if __name__ == "__main__":
     
     # the dataset to be processed should contain molecule pairs
     with open(args.train) as f:
-        alldata = [line.strip("\r\n ").split()[:2] for line in f][:20]
+        alldata = [line.strip("\r\n ").split()[:2] for line in f]
     
     # whether processing the entire dataset or only a batch of the dataset.
     if args.batch_size > 0:

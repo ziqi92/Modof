@@ -7,7 +7,7 @@ import rdkit.Chem.QED as QED
 import networkx as nx
 import sascorer
 import drd2_scorer
-from tdc import Oracle
+#from tdc import Oracle
 
 def similarity(a, b, sim_type):
     if a is None or b is None: 
@@ -35,8 +35,8 @@ def get_prop(s, prop="logp"):
         return drd2(s)
     elif prop == "qed":
         return qed(s)
-    elif prop == "gsk":
-        return gsk(s)
+    #elif prop == "gsk":
+    #    return gsk(s)
     else:
         raise ValueError("unsupported properties")
 
@@ -54,14 +54,14 @@ def qed(s):
 
 
 
-from tdc import Oracle
-oracle_gsk = None
+#from tdc import Oracle
+#oracle_gsk = None
 
-def gsk(s):
-    if oracle_gsk is None: oracle_gsk = Oracle(name = 'GSK3B')
-
-    if s is None: return 0.0
-    return oracle_gsk(s)    
+#def gsk(s):
+#    if oracle_gsk is None: oracle_gsk = Oracle(name = 'GSK3B')
+#
+#    if s is None: return 0.0
+#    return oracle_gsk(s)    
 
 # Modified from https://github.com/bowenliu16/rl_graph_generation
 def penalized_logp(s):

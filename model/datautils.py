@@ -23,8 +23,11 @@ class PairTreeFolder(object):
             self.data_files = self.data_files * replicate
 
     def __iter__(self):
+        number_of_files = 0
         for fn in os.listdir(self.path):
-            if not fn.startswith("tensors"): continue
+            if not fn.endswith("pkl"): continue
+            
+            number_of_files += 1
             fn = os.path.join(self.path, fn)
             with open(fn, 'rb') as f:
                 data = pickle.load(f)
@@ -42,6 +45,9 @@ class PairTreeFolder(object):
             for b in dataloader:
                 yield b
             del data, batches, dataset, dataloader
+        
+        if number_of_files == 0: raise ValueError("The names of data files must end with 'pkl'. " + \
+                                            "No such file exist in the train path")
 
 class MolTreeFolder(object):
     
