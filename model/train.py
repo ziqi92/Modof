@@ -24,6 +24,11 @@ from torch.nn import DataParallel
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
+copyright = "Modof  Copyright (C) 2021 Ziqi Chen, Xia Ning at the Ohio State University\n" + \
+    "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'." + \
+    "This is free software, and you are welcome to redistribute it"
+    "under certain conditions; type `show c' for details."
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--train', type=str, default=path+"/data/logp06/", help='data path to training data')
@@ -62,11 +67,12 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
 
+    print(copyright)
     # read vocabulary
     vocab = [x.strip("\r\n ") for x in open(args.vocab)] 
     vocab = Vocab(vocab)
     avocab = common_atom_vocab
-
+    
     
     if not os.path.exists(args.save_dir):
         os.mkdir(args.save_dir)

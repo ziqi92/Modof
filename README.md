@@ -1,7 +1,7 @@
 # Molecule Optimization via Fragment-based Generative Models
 
 
-This is the implementation of our Modof model https://arxiv.org/pdf/2012.04231.pdf.
+This is the implementation of our Modof model: https://arxiv.org/abs/2012.04231. This paper has already been accepted by the journal "Nature Machine Intelligence".
 
 ## Requirements
 
@@ -88,7 +88,7 @@ For the <kbd>output</kbd> option, the above command (1) will generate n=(number 
 
 <kbd>batch_size</kbd> and <kbd>batch_id</kbd> is recommended to use for large training dataset. If your training dataset is large, you can process batches of training data in a parallel way by running the above command multiple times with different batch_id. These two arguments are simply designed to speed up the data preprocessing for large dataset. If you have small training dataset, you can choose not to specify the value of <kbd>batch_size</kbd> and <kbd>batch_id</kbd>, and then the entire training data will be processed one time.
 
-Note that the training pairs of molecules for *Modof* model is required to differ in terms of only one fragment. The training pairs which differ in multiple fragments will be filtered out by the above command. To get enough training pairs for *Modof* model, it is expected that the molecules in your own training data are very similar. 
+Note that the training pairs of molecules for *Modof* model are required to differ in terms of only one disconnection site. The training pairs which differ in multiple disconnection site will be filtered out by the above command. To get enough training pairs for *Modof* model, it is expected that the molecules in your own training data are very similar. 
 
 Example:
 
