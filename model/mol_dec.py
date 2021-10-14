@@ -79,10 +79,10 @@ class MolDecoder(nn.Module):
         self.U_n = nn.Linear(hidden_size, self.vocab_size).to(device)
         
         #Loss Functions
-        self.tart_loss = nn.CrossEntropyLoss(size_average=False)
-        self.del_loss = nn.BCEWithLogitsLoss(size_average=False)
-        self.node_loss = nn.CrossEntropyLoss(size_average=False)
-        self.topo_loss = nn.BCEWithLogitsLoss(size_average=False)
+        self.tart_loss = nn.CrossEntropyLoss(reduction='sum')
+        self.del_loss = nn.BCEWithLogitsLoss(reduction='sum')
+        self.node_loss = nn.CrossEntropyLoss(reduction='sum')
+        self.topo_loss = nn.BCEWithLogitsLoss(reduction='sum')
         
     def get_target_predictions(self, graphs):
         """ Get the ground truth disconnection site labels for prediction

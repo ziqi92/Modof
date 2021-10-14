@@ -24,10 +24,12 @@ from torch.nn import DataParallel
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-copyright = "Modof  Copyright (C) 2021 Ziqi Chen, Xia Ning at the Ohio State University\n" + \
-    "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'." + \
-    "This is free software, and you are welcome to redistribute it"
-    "under certain conditions; type `show c' for details."
+copyright = ("=============================================================\n\n"
+             "Modof  Copyright (C) 2021 Ziqi Chen, Xia Ning at the Ohio State University\n" 
+             "This program comes with ABSOLUTELY NO WARRANTY; for details type \`show w\'.\n"
+             "This is free software, and you are welcome to redistribute it\n"
+             "under certain conditions; type `show c' for details.\n\n"
+             "=============================================================\n\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -78,13 +80,15 @@ if __name__ == "__main__":
         os.mkdir(args.save_dir)
     
     model = MolOpt(vocab, avocab, args)
+    print("The architecture of Modof:\n")
     print(model)
     
     # load previous trained model
     if args.load_epoch > 0:
         model.load_state_dict(torch.load(args.save_dir + "/model.iter-" + str(args.load_epoch)))
 
-    print("Model #Params: {0}K".format(sum([x.nelement() for x in model.parameters()]) / 1000))
+    print("Model #Params: {0}K\n\n".format(sum([x.nelement() for x in model.parameters()]) / 1000))
+    print("Training Log:\n")
     
     # optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr, amsgrad=True)
