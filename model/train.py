@@ -25,10 +25,16 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 copyright = ("=============================================================\n\n"
-             "Modof  Copyright (C) 2021 Ziqi Chen, Xia Ning at the Ohio State University\n" 
-             "This program comes with ABSOLUTELY NO WARRANTY; for details type \`show w\'.\n"
-             "This is free software, and you are welcome to redistribute it\n"
-             "under certain conditions; type `show c' for details.\n\n"
+             "   Copyright 2021 Ziqi Chen, Xia Ning at the Ohio State University\n\n" 
+             "   Licensed under the Apache License, Version 2.0 (the \"License\");\n"
+             "   you may not use this file except in compliance with the License.\n"
+             "   You may obtain a copy of the License at \`show w\'.\n\n"
+             "       http://www.apache.org/licenses/LICENSE-2.0\n\n"
+             "   Unless required by applicable law or agreed to in writing, software\n"
+             "   distributed under the License is distributed on an \"AS IS\" BASIS,\n"
+             "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
+             "   See the License for the specific language governing permissions and\n"
+             "   limitations under the License.\n"
              "=============================================================\n\n")
 
 if __name__ == "__main__":
