@@ -1,7 +1,10 @@
 # Molecule Optimization via Fragment-based Generative Models
 
+This is the implementation of our Modof model: https://arxiv.org/abs/2012.04231. This paper has already been accepted by the journal "Nature Machine Intelligence". 
 
-This is the implementation of our Modof model: https://arxiv.org/abs/2012.04231. This paper has already been accepted by the journal "Nature Machine Intelligence".
+**Note**: This repository has been moved to https://github.com/ninglab/Modof. Please check this link for the most recent updates we have.
+
+
 
 ## Requirements
 
