@@ -24,19 +24,6 @@ from torch.nn import DataParallel
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-copyright = ("=============================================================\n\n"
-             "   Copyright 2021 Ziqi Chen, Xia Ning at the Ohio State University\n\n" 
-             "   Licensed under the Apache License, Version 2.0 (the \"License\");\n"
-             "   you may not use this file except in compliance with the License.\n"
-             "   You may obtain a copy of the License at \`show w\'.\n\n"
-             "       http://www.apache.org/licenses/LICENSE-2.0\n\n"
-             "   Unless required by applicable law or agreed to in writing, software\n"
-             "   distributed under the License is distributed on an \"AS IS\" BASIS,\n"
-             "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n"
-             "   See the License for the specific language governing permissions and\n"
-             "   limitations under the License.\n"
-             "=============================================================\n\n")
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--train', type=str, default=path+"/data/logp06/", help='data path to training data')
@@ -75,7 +62,6 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
 
-    print(copyright)
     # read vocabulary
     vocab = [x.strip("\r\n ") for x in open(args.vocab)] 
     vocab = Vocab(vocab)
