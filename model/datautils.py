@@ -51,26 +51,19 @@ class PairTreeFolder(object):
 
 class MolTreeFolder(object):
     
-    def __init__(self, data_folder, vocab, batch_size, num_workers=1, shuffle=True, assm=True, replicate=None, prop_file=None):
+    def __init__(self, data_folder, vocab, batch_size, num_workers=1, shuffle=True, assm=True, replicate=None):
         self.data_folder = data_folder
         self.data_files = [fn for fn in os.listdir(data_folder)]
         self.batch_size = batch_size
         self.vocab = vocab
         self.num_workers = num_workers
         self.shuffle = shuffle
-        self.assm = assm
-        self.prop = False        
+        self.assm = assm      
 
         if replicate is not None: #expand is int
             self.data_files = self.data_files * replicate
-        if prop_file is not None:
-            self.prop_file = prop_file
-            self.prop = True
 
     def __iter__(self):
-        if self.prop:
-            prop_data = np.loadtxt(self.prop_file)
-
         for fn in self.data_files:
             if 'tensors' not in fn: continue
             idx = int(re.split('[.|-]', fn)[1])
@@ -78,10 +71,7 @@ class MolTreeFolder(object):
             fn = os.path.join(self.data_folder, fn)
             with open(fn,'rb') as f:
                 data = pickle.load(f)
-            
-            if self.prop:
-                prop = prop_data[20000*idx:min(20000*(idx+1), len(prop_data))]
-                data = [(data[i], prop[i]) for i in range(len(data))]
+           
 
             if self.shuffle: 
                 random.shuffle(data) #shuffle data before batch
@@ -92,10 +82,7 @@ class MolTreeFolder(object):
             if len(batches) == 0:
                 continue
             
-            if self.prop:
-                dataset = PropDataset(batches, self.vocab, self.assm)
-            else:
-                dataset = MolTreeDataset(batches, self.vocab, self.assm)
+            dataset = MolTreeDataset(batches, self.vocab, self.assm)
             dataloader = DataLoader(dataset, batch_size=1, shuffle=False, collate_fn=lambda x:x[0])
 
             for b in dataloader:
@@ -139,18 +126,4 @@ class MolTreeDataset(Dataset):
     
     def __getitem__(self, idx):
         return tensorize(self.data[idx], self.vocab, assm=self.assm)
-
-class PropDataset(Dataset):
-    def __init__(self, data, vocab, assm=True):
-        self.data = data
-        self.vocab = vocab
-        self.assm = assm
-
-    def __len__(self):
-        return len(self.data)
-
-    def __getitem__(self, idx):
-        mol_trees = [data[0] for data in self.data[idx]]
-        prop_data = [data[1] for data in self.data[idx]]
-        return tensorize(mol_trees, self.vocab, assm=self.assm), prop_data
         

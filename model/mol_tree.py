@@ -118,10 +118,6 @@ class MolTree(object):
             for x in nodes:
                 sorted_child = sorted([ edge[1] for edge in self.mol_tree.edges(x) if edge[1] not in visited ]) #better performance with fixed order
                 for idx,y in enumerate(sorted_child):
-                    #self.mol_tree[x][y]['label'] = 0 
-                    #self.mol_tree[y][x]['label'] = idx + 1 #position encoding
-                    #prev_sib[y] = sorted_child[:idx] 
-                    #prev_sib[y] += [x, fa] if fa >= 0 else [x]
                     order.append((x, y))
                 new_nodes.extend(sorted_child)
             
@@ -169,7 +165,6 @@ class MolTree(object):
                 is_break = False
         scores = torch.FloatTensor(scores)
         
-        #mol_batch = [MolGraph(x) for x in mol_batch]
         tree_tensors, tree_batchG = MolTree.tensorize_graph([x.mol_tree for x in mol_batch], vocab)
         graph_tensors, graph_batchG = MolTree.tensorize_graph([x.mol_graph for x in mol_batch], avocab, tree=False)
         tree_scope = tree_tensors[-1]
@@ -349,9 +344,6 @@ def dfs(node, fa_nid):
 
 
 if __name__ == "__main__":
-    #import sys
-    #lg = rdkit.RDLogger.logger() 
-    #lg.setLevel(rdkit.RDLogger.CRITICAL)
     
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--train", type=str, default="./data/logp06/", help="the path of training data")

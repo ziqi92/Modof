@@ -1260,33 +1260,3 @@ def atom_cand(atom1, mol, amap):
             return True, cands
 
     return False, 0
-
-
-class TreeLSTM(nn.Module):
-    def __init__(self, input_size, hidden_size, depth):
-        super(TreeLSTM, self).__init__()
-        self.hidden_size = hidden_size
-        self.input_size = input_size
-        self.depth = depth
-
-        self.W_i = nn.Linear(input_size + hidden_size, hidden_size).to(device)
-        self.W_o = nn.Linear(input_size + hidden_size, hidden_size).to(device)
-        self.W_c = nn.Linear(input_size + hidden_size, hidden_size).to(device)
-        self.W_f = nn.Linear(input_size + hidden_size, hidden_size).to(device)
-        self.W_p = nn.Linear(2 * hidden_size, hidden_size).to(device)
-
-    def forward(self, cur_x, cur_fh, cur_fc):
-        z_input = torch.cat((cur_x, cur_fh), dim=1)
-        z_i = torch.sigmoid(self.W_i(z_input))
-        z_o = torch.sigmoid(self.W_o(z_input))
-        z_c = torch.tanh(self.W_c(z_input))
-        z_f = torch.sigmoid(self.W_f(z_input))
-        
-        cur_xc = z_f * cur_fc + z_i * z_c
-        cur_xh = z_o * torch.tanh(cur_xc)
-        
-        z_p = torch.sigmoid(self.W_p(torch.cat([cur_xh, cur_fh], dim=1)))
-        
-        cur_fh = z_p * torch.tanh(cur_fh)
-        
-        return cur_xh, cur_xc, cur_fh
